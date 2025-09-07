@@ -1,4 +1,4 @@
-# Astro Starter Kit: Basics
+# LAVA - The UGC Agency
 
 ```sh
 pnpm create astro@latest -- --template basics
