@@ -1,37 +1,46 @@
 name: Deploy to Hostinger (Astro + pnpm)
 
 on:
-  push:
-    branches: [main]
+   push:
+      branches: [main]
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+   deploy:
+      runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      steps:
+         - name: Checkout repository
+           uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+         - name: Setup Node.js
+           uses: actions/setup-node@v4
+           with:
+              node-version: 20
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+         - name: Install pnpm
+           run: npm install -g pnpm
 
-      - name: Install dependencies
-        run: pnpm install
+         - name: Install dependencies
+           run: pnpm install
 
-      - name: Build project
-        run: pnpm run build
+         - name: Build project
+           run: pnpm run build
 
-      - name: Deploy to Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.HOSTINGER_SERVER }}
-          username: ${{ secrets.HOSTINGER_USERNAME }}
-          password: ${{ secrets.HOSTINGER_PASSWORD }}
-          port: 21
-          local-dir: ./dist/
-          server-dir: ${{ secrets.HOSTINGER_DEPLOY_PATH }}
+         - name: List build output
+           run: |
+              echo "📁 Contents of dist folder:"
+              ls -la ./dist/
+              echo "📊 Total size of dist:"
+              du -sh ./dist/
+
+         - name: Deploy to Hostinger
+           uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+           with:
+              server: ${{ secrets.HOSTINGER_SERVER }}
+              username: ${{ secrets.HOSTINGER_USERNAME }}
+              password: ${{ secrets.HOSTINGER_PASSWORD }}
+              port: 21
+              local-dir: ./dist/
+              server-dir: ${{ secrets.HOSTINGER_DEPLOY_PATH }}
+              log-level: verbose
+              dry-run: false
