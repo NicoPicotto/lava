@@ -30,7 +30,7 @@ jobs:
            run: |
               echo "📁 Contents of dist folder:"
               ls -la ./dist/
-              echo "📊 Total size of dist:"
+              echo "📊 Total size:"
               du -sh ./dist/
 
          - name: Deploy to Hostinger
@@ -43,4 +43,4 @@ jobs:
               local-dir: ./dist/
               server-dir: ${{ secrets.HOSTINGER_DEPLOY_PATH }}
               log-level: verbose
-              dry-run: false
+              dangerous-clean-slate: true
