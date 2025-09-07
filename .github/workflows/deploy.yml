@@ -26,11 +26,15 @@ jobs:
          - name: Build project
            run: pnpm run build
 
-         - name: List build output
+         - name: Debug - Show what will be uploaded
            run: |
-              echo "📁 Contents of dist folder:"
-              ls -la ./dist/
-              echo "📊 Total size:"
+              echo "📁 Files to be uploaded from dist/:"
+              find ./dist -type f | head -20
+              echo ""
+              echo "📊 Total files count:"
+              find ./dist -type f | wc -l
+              echo ""
+              echo "💾 Total size:"
               du -sh ./dist/
 
          - name: Deploy to Hostinger
@@ -41,6 +45,5 @@ jobs:
               password: ${{ secrets.HOSTINGER_PASSWORD }}
               port: 21
               local-dir: ./dist/
-              server-dir: ${{ secrets.HOSTINGER_DEPLOY_PATH }}
+              server-dir: ./ # 👈 CAMBIO IMPORTANTE - probar root primero
               log-level: verbose
-              dangerous-clean-slate: true
