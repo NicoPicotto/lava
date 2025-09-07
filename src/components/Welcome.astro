@@ -1,6 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import backgroundImage from "../assets/lava-bg.png";
+import bg1 from "../assets/bg-1.png";
+import bg2 from "../assets/bg-2.png";
+import bg3 from "../assets/bg-3.png";
+import bg4 from "../assets/bg-4.png";
+import bg5 from "../assets/bg-5.png";
+import bg6 from "../assets/bg-6.png";
 import logo from "../assets/logo-white.svg";
 ---
 
@@ -20,9 +25,75 @@ import logo from "../assets/logo-white.svg";
       </div>
    </div>
 
-   <Image
-      src={backgroundImage}
-      alt='Fondo de volcán de lava'
-      class='absolute top-0 left-0 w-full h-full object-cover object-center z-[-1]'
-   />
+   <div class="background-slider">
+      <Image
+         src={bg1}
+         alt='Fondo de volcán de lava'
+         class='background-image'
+      />
+      <Image
+         src={bg2}
+         alt='Fondo de volcán de lava'
+         class='background-image'
+      />
+      <Image
+         src={bg3}
+         alt='Fondo de volcán de lava'
+         class='background-image'
+      />
+      <Image
+         src={bg4}
+         alt='Fondo de volcán de lava'
+         class='background-image'
+      />
+      <Image
+         src={bg5}
+         alt='Fondo de volcán de lava'
+         class='background-image'
+      />
+      <Image
+         src={bg6}
+         alt='Fondo de volcán de lava'
+         class='background-image'
+      />
+   </div>
 </main>
+
+<style>
+.background-slider {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+}
+
+.background-image {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: center;
+   opacity: 0;
+   animation: backgroundSlide 6s infinite;
+}
+
+.background-image:nth-child(1) { animation-delay: 0s; }
+.background-image:nth-child(2) { animation-delay: 1s; }
+.background-image:nth-child(3) { animation-delay: 2s; }
+.background-image:nth-child(4) { animation-delay: 3s; }
+.background-image:nth-child(5) { animation-delay: 4s; }
+.background-image:nth-child(6) { animation-delay: 5s; }
+
+@keyframes backgroundSlide {
+   0%, 16.67% {
+      opacity: 1;
+   }
+   16.68%, 100% {
+      opacity: 0;
+   }
+}
+</style>
