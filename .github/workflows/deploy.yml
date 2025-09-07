@@ -1,49 +1,39 @@
 name: Deploy to Hostinger (Astro + pnpm)
 
 on:
-   push:
-      branches: [main]
+  push:
+    branches: [main]
 
 jobs:
-   deploy:
-      runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
 
-      steps:
-         - name: Checkout repository
-           uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-         - name: Setup Node.js
-           uses: actions/setup-node@v4
-           with:
-              node-version: 20
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-         - name: Install pnpm
-           run: npm install -g pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-         - name: Install dependencies
-           run: pnpm install
+      - name: Install dependencies
+        run: pnpm install
 
-         - name: Build project
-           run: pnpm run build
+      - name: Build project
+        run: pnpm run build
 
-         - name: Debug - Show what will be uploaded
-           run: |
-              echo "📁 Files to be uploaded from dist/:"
-              find ./dist -type f | head -20
-              echo ""
-              echo "📊 Total files count:"
-              find ./dist -type f | wc -l
-              echo ""
-              echo "💾 Total size:"
-              du -sh ./dist/
-
-         - name: Deploy to Hostinger
-           uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-           with:
-              server: ${{ secrets.HOSTINGER_SERVER }}
-              username: ${{ secrets.HOSTINGER_USERNAME }}
-              password: ${{ secrets.HOSTINGER_PASSWORD }}
-              port: 21
-              local-dir: ./dist/
-              server-dir: ./ # 👈 CAMBIO IMPORTANTE - probar root primero
-              log-level: verbose
+      - name: Deploy to Hostinger - CORRECT PATH
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.HOSTINGER_SERVER }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
+          port: 21
+          local-dir: ./dist/
+          server-dir: /home/u137782634/domains/lavaugc.com/public_html/  # 🎯 RUTA CORRECTA
+          log-level: verbose
+          dangerous-clean-slate: true  # Para limpiar los archivos viejos
