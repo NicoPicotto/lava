@@ -34,6 +34,6 @@ jobs:
           password: ${{ secrets.HOSTINGER_PASSWORD }}
           port: 21
           local-dir: ./dist/
-          server-dir: /home/u137782634/domains/lavaugc.com/public_html/  # 🎯 RUTA CORRECTA
+          server-dir: /domains/lavaugc.com/public_html/  # 🎯 RUTA CORRECTA
           log-level: verbose
           dangerous-clean-slate: true  # Para limpiar los archivos viejos
