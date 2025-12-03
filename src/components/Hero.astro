@@ -1,16 +1,22 @@
 ---
-import heroVideo from "../assets/hero-video.mp4"
-
+import heroVideo from "../assets/hero-video.mp4";
 ---
-<main class='h-[100dvh] w-[100vw] relative'>
-    <video class='w-full h-full absolute object-cover -z-2' autoplay loop muted>
-        <source src={heroVideo} type='video/mp4' />
-    </video>
-        <div class="absolute w-full h-full -z-1 bg-[#1A1A1A] opacity-50"></div>
-    <div class="flex flex-col items-center justify-center h-full w-full z-3">
-        <h1 class="text-[15rem] leading-none text-center font-extrabold italic tracking-[-4px]" style="font-size: clamp(3rem, 15vw, 15rem);">HUMANIZING</h1>
-        <h2 class="text-[5rem] leading-none text-center font-extrabold italic tracking-[-4px]">YOUR BRAND</h2>
-    </div>
 
-    
+<main class='h-[100dvh] w-[100vw] relative'>
+   <video class='w-full h-full absolute object-cover -z-2' autoplay loop muted>
+      <source src={heroVideo} type='video/mp4' />
+   </video>
+   <div class='absolute w-full h-full -z-1 bg-[#1A1A1A] opacity-50'></div>
+   <div class='flex flex-col items-center justify-center h-full w-full z-3'>
+      <h1
+         class='text-[15rem] leading-none text-center font-extrabold italic tracking-normal md:tracking-[-4px]'
+      >
+         HUMANIZING
+      </h1>
+      <h2
+         class='text-[5rem] leading-none text-center font-extrabold italic'
+      >
+         YOUR BRAND
+      </h2>
+   </div>
 </main>

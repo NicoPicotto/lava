@@ -1,8 +1,52 @@
 ---
-import { Image } from 'astro:assets';
-import bgSolutions from "../assets/bg-solutions.png";
+import { Image } from "astro:assets";
+import lava3d from "../assets/3d-lava.png";
+import SolutionsCard from "./commons/solutions-card.astro";
+import Container from "./commons/container.astro";
 ---
 
-<main class='h-[100dvh] w-[100vw] relative'>
-    <Image src={bgSolutions} class="absolute w-full h-full object-cover" alt="bg-solutions" />
+<main class='h-[100dvh] w-[100vw] relative overflow-hidden'>
+   <div class='gradient-bg absolute inset-0 -z-20'></div>
+   <div class='noise-overlay absolute inset-0 -z-10 pointer-events-none'></div>
+   <div class='relative z-10 flex flex-col justify-center gap-40 py-[8rem]'>
+      <h1
+         class='text-[15rem] leading-none text-center font-extrabold italic tracking-normal md:tracking-[-4px]'
+      >
+         SOLUTIONS
+      </h1>
+      <Container>
+         <div class='grid grid-cols-3 gap-16'>
+            <SolutionsCard
+               title='CREATORS ORGANIC'
+               description='lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas'
+            />
+            <SolutionsCard
+               title='UGC ADS'
+               description='lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas'
+            />
+            <SolutionsCard
+               title='PRODUCT SEEDING'
+               description='lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas'
+            />
+         </div>
+      </Container>
+   </div>
+
+   <Image
+      class='absolute inset-0 z-11 w-[16rem] top-[1%] left-[40%]'
+      src={lava3d}
+      alt='lava 3d'
+   />
 </main>
+
+<style>
+   .gradient-bg {
+      background: linear-gradient(to top right, #856fd7 0%, #ff7168 100%);
+   }
+
+   .noise-overlay {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.15;
+      filter: blur(0.5px);
+   }
+</style>

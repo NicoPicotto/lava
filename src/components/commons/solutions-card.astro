@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets";
+import iconLava from "../../assets/icon-white.svg";
+
+const { title, description } = Astro.props;
+---
+
+<div class='flex flex-col gap-10 items-center'>
+   <div class='flex gap-4 items-center w-fit ml-[-4rem]'>
+      <Image src={iconLava} alt='Lava Icon' class='h-18 flex-shrink-0' />
+      <h3 class='text-[3rem] lh-1 font-bold leading-none text-center max-w-[15rem]'>{title}</h3>
+   </div>
+   <p class='text-lg font-light leading-relaxed w-full'>
+      {description}
+   </p>
+</div>
