@@ -3,6 +3,9 @@ import { Image } from "astro:assets";
 import lava3d from "../assets/3d-lava.png";
 import SolutionsCard from "./commons/solutions-card.astro";
 import Container from "./commons/container.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const solutions: CollectionEntry<"solutions">[] = await getCollection("solutions");
 ---
 
 <main class='h-[100dvh] w-[100vw] relative overflow-hidden'>
@@ -16,18 +19,15 @@ import Container from "./commons/container.astro";
       </h1>
       <Container>
          <div class='grid grid-cols-3 gap-16'>
-            <SolutionsCard
-               title='CREATORS ORGANIC'
-               description='lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas'
-            />
-            <SolutionsCard
-               title='UGC ADS'
-               description='lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas'
-            />
-            <SolutionsCard
-               title='PRODUCT SEEDING'
-               description='lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas'
-            />
+            {
+               solutions.map((solution) => (
+                  <SolutionsCard
+                     title={solution.data.title}
+                     description={solution.data.description}
+                  />
+               ))
+            }
+            
          </div>
       </Container>
    </div>
