@@ -1,22 +1,26 @@
 ---
 import heroVideo from "../assets/hero-video.mp4";
+import { getLangFromUrl, getI18N } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getI18N(lang);
 ---
 
-<main class='h-[100dvh] w-[100vw] relative'>
+<main class='h-dvh w-screen relative'>
    <video class='w-full h-full absolute object-cover -z-2' autoplay loop muted>
       <source src={heroVideo} type='video/mp4' />
    </video>
-   <div class='absolute w-full h-full -z-1 bg-[#1A1A1A] opacity-50'></div>
+   <div class='absolute w-full h-full -z-1 bg-text-secondary opacity-50'></div>
    <div class='flex flex-col items-center justify-center h-full w-full z-3'>
       <h1
          class='text-[15rem] leading-none text-center font-extrabold italic tracking-normal md:tracking-[-4px]'
       >
-         HUMANIZING
+         {t.hero.title}
       </h1>
       <h2
          class='text-[5rem] leading-none text-center font-extrabold italic'
       >
-         YOUR BRAND
+         {t.hero.subtitle}
       </h2>
    </div>
 </main>

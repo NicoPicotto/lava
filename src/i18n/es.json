@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "title": "HUMANIZING",
+    "subtitle": "YOUR BRAND"
+  },
+  "solutions": {
+    "title": "SOLUTIONS",
+    "cards": {
+      "creatorsOrganic": {
+        "title": "CREATORS ORGANIC",
+        "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
+      },
+      "ugcAds": {
+        "title": "UGC ADS",
+        "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
+      },
+      "productSeeding": {
+        "title": "PRODUCT SEEDING",
+        "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
+      }
+    }
+  },
+  "common": {
+    "language": "Idioma"
+  }
+}

@@ -1,0 +1,9 @@
+# Permitir acceso general al sitio
+User-agent: *
+Allow: /
+
+# Bloquear indexación de /develop
+Disallow: /develop
+
+# Sitemap (opcional, agregar cuando tengas uno)
+# Sitemap: https://lavaugc.com/sitemap.xml
