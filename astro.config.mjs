@@ -16,6 +16,15 @@ export default defineConfig({
    // Base path (si tu sitio está en la raíz, déjalo como '/')
    base: "/",
 
+   // Configuración de i18n
+   i18n: {
+      defaultLocale: "es",
+      locales: ["es", "en"],
+      routing: {
+         prefixDefaultLocale: false, // español sin prefijo (/), inglés con prefijo (/en/)
+      },
+   },
+
    vite: {
       plugins: [tailwindcss()],
    },

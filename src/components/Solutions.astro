@@ -3,30 +3,34 @@ import { Image } from "astro:assets";
 import lava3d from "../assets/3d-lava.png";
 import SolutionsCard from "./commons/solutions-card.astro";
 import Container from "./commons/container.astro";
+import { getLangFromUrl, getI18N } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getI18N(lang);
 ---
 
-<main class='h-[100dvh] w-[100vw] relative overflow-hidden'>
+<main class='h-dvh w-screen relative overflow-hidden'>
    <div class='gradient-bg absolute inset-0 -z-20'></div>
    <div class='noise-overlay absolute inset-0 -z-10 pointer-events-none'></div>
-   <div class='relative z-10 flex flex-col justify-center gap-40 py-[8rem]'>
+   <div class='relative z-10 flex flex-col justify-center gap-40 py-32'>
       <h1
          class='text-[15rem] leading-none text-center font-extrabold italic tracking-normal md:tracking-[-4px]'
       >
-         SOLUTIONS
+         {t.solutions.title}
       </h1>
       <Container>
          <div class='grid grid-cols-3 gap-16'>
             <SolutionsCard
-               title='CREATORS ORGANIC'
-               description='lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas'
+               title={t.solutions.cards.creatorsOrganic.title}
+               description={t.solutions.cards.creatorsOrganic.description}
             />
             <SolutionsCard
-               title='UGC ADS'
-               description='lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas'
+               title={t.solutions.cards.ugcAds.title}
+               description={t.solutions.cards.ugcAds.description}
             />
             <SolutionsCard
-               title='PRODUCT SEEDING'
-               description='lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas'
+               title={t.solutions.cards.productSeeding.title}
+               description={t.solutions.cards.productSeeding.description}
             />
          </div>
       </Container>
