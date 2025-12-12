@@ -1,8 +1,4 @@
 {
-  "hero": {
-    "title": "HUMANIZING",
-    "subtitle": "YOUR BRAND"
-  },
   "solutions": {
     "title": "SOLUTIONS",
     "cards": {
@@ -22,5 +18,13 @@
   },
   "common": {
     "language": "Language"
+  },
+  "navbar": {
+    "menu": {
+      "home": "HOME",
+      "solutions": "SOLUTIONS",
+      "lavalab": "LAVALab",
+      "contact": "CONTACT"
+    }
   }
 }

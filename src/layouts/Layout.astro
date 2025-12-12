@@ -5,9 +5,10 @@ import Navbar from "../components/navbar/navbar.astro";
 
 interface Props {
    noindex?: boolean;
+   showNav?: boolean;
 }
 
-const { noindex = false } = Astro.props;
+const { noindex = false, showNav = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -29,13 +30,13 @@ const { noindex = false } = Astro.props;
       <title>LAVA - The UGC Agency</title>
    </head>
    <body>
-      <!-- <Navbar /> -->
+      {showNav && <Navbar />}
       <slot />
    </body>
 </html>
 
 <style>
-   html {
+   /* html {
       font-size: 1.4875rem;
    }
    @media screen and (max-width: 2500px) {
@@ -57,7 +58,7 @@ const { noindex = false } = Astro.props;
       html {
          font-size: calc(0.15rem + 0.35vw);
       }
-   }
+   } */
 
    html,
    body {

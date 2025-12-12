@@ -63,18 +63,18 @@
    --font-family-primary: "Host Grotesk", system-ui, sans-serif;
    --font-family-secondary: "Archivo", system-ui, sans-serif;
 
-   --color-text-secondary: #1A1A1A;
+   --color-text-secondary: #1a1a1a;
 }
 
 @layer base {
    :root {
-      --background: var(--color-neutral-50);
-      --foreground: #F4F1EA;
+      --background: #1a1a1a;
+      --foreground: #f4f1ea;
       --card: var(--color-neutral-50);
       --card-foreground: var(--color-neutral-950);
       --popover: var(--color-neutral-50);
       --popover-foreground: var(--color-neutral-950);
-      --primary: var(--color-blue-700);
+      --primary: #ff7542;
       --primary-foreground: var(--color-neutral-50);
       --secondary: var(--color-fuchsia-700);
       --secondary-foreground: var(--color-neutral-50);

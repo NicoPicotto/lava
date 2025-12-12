@@ -1,6 +1,8 @@
 ---
 import heroVideo from "../assets/hero-video.mp4";
 import { getLangFromUrl, getI18N } from "../i18n/utils";
+import { Image } from "astro:assets";
+import logo from "../assets/logo-white-claim.svg";
 
 const lang = getLangFromUrl(Astro.url);
 const t = getI18N(lang);
@@ -12,15 +14,10 @@ const t = getI18N(lang);
    </video>
    <div class='absolute w-full h-full -z-1 bg-text-secondary opacity-50'></div>
    <div class='flex flex-col items-center justify-center h-full w-full z-3'>
-      <h1
-         class='text-[15rem] leading-none text-center font-extrabold italic tracking-normal md:tracking-[-4px]'
-      >
-         {t.hero.title}
-      </h1>
-      <h2
-         class='text-[5rem] leading-none text-center font-extrabold italic'
-      >
-         {t.hero.subtitle}
-      </h2>
+      <Image
+               src={logo}
+               class='w-full max-w-[80%] logo-default'
+               alt='logo'
+            />
    </div>
 </main>

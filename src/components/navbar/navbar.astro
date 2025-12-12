@@ -1,13 +1,119 @@
 ---
 import Container from "../commons/container.astro";
 import { Image } from "astro:assets";
-import logoColor from "../../assets/logo-color.svg";
+import logoWhite from "../../assets/logo-white.svg";
+import { getLangFromUrl, getI18N } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getI18N(lang);
 ---
 
-<nav class='w-full py-6 fixed top-0 z-10'>
+<div
+   id='menu-overlay'
+   class='fixed inset-0 bg-[#212121] translate-x-full transition-transform duration-500 ease-in-out flex items-center z-40 pointer-events-none'
+>
    <Container>
-      <div class='absolute top-0 left-0'>
-         <Image src={logoColor} class='sm:w-[10rem] w-[40%]' alt='logo' />
+      <div class='space-y-2'>
+         <a
+            href='#solutions'
+            class='menu-item block text-[3em] md:text-[6rem] font-extrabold px-4 italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
+         >
+            {t.navbar.menu.home}
+         </a>
+         <a
+            href='#solutions'
+            class='menu-item block text-[3rem] md:text-[6rem] font-extrabold px-4 italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
+         >
+            {t.navbar.menu.solutions}
+         </a>
+         <a
+            href='#lavalab'
+            class='menu-item block text-[3rem] md:text-[6rem] font-extrabold px-4 italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
+         >
+            {t.navbar.menu.lavalab}
+         </a>
+         <a
+            href='#contact'
+            class='menu-item block text-[3rem] md:text-[6rem] font-extrabold px-4 italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
+         >
+            {t.navbar.menu.contact}
+         </a>
+      </div>
+   </Container>
+</div>
+
+<nav class='w-full py-6 fixed top-0 z-50 pointer-events-none'>
+   <Container>
+      <div class='flex justify-between items-center'>
+         <div class='pointer-events-none'>
+            <Image
+               src={logoWhite}
+               class='sm:w-[10rem] w-[40%] logo-menu opacity-0 transition-opacity duration-500'
+               alt='logo'
+            />
+         </div>
+
+         <button
+            id='menu-toggle'
+            class='relative w-14 h-14 flex flex-col justify-center items-center border rounded-full border-foreground gap-1.5 pointer-events-auto'
+            aria-label='Toggle menu'
+         >
+            <span
+               class='hamburger-line w-8 h-0.5 bg-foreground transition-all duration-300 ease-in-out'
+            ></span>
+            <span
+               class='hamburger-line w-8 h-0.5 bg-foreground transition-all duration-300 ease-in-out'
+            ></span>
+            <span
+               class='hamburger-line w-8 h-0.5 bg-foreground transition-all duration-300 ease-in-out'
+            ></span>
+         </button>
       </div>
    </Container>
 </nav>
+
+<script>
+   const menuToggle = document.getElementById("menu-toggle");
+   const menuOverlay = document.getElementById("menu-overlay");
+   const hamburgerLines = document.querySelectorAll(".hamburger-line");
+   const logoMenu = document.querySelector(".logo-menu");
+   const menuItems = document.querySelectorAll(".menu-item");
+
+   let isMenuOpen = false;
+
+   menuToggle?.addEventListener("click", () => {
+      isMenuOpen = !isMenuOpen;
+
+      if (isMenuOpen) {
+         menuOverlay?.classList.remove("translate-x-full");
+         menuOverlay?.classList.add("translate-x-0");
+         menuOverlay?.classList.remove("pointer-events-none");
+         menuOverlay?.classList.add("pointer-events-auto");
+
+         logoMenu?.classList.remove("opacity-0");
+         logoMenu?.classList.add("opacity-100");
+
+         hamburgerLines[0]?.classList.add("rotate-45", "translate-y-2");
+         hamburgerLines[1]?.classList.add("opacity-0");
+         hamburgerLines[2]?.classList.add("-rotate-45", "-translate-y-2");
+      } else {
+         menuOverlay?.classList.add("translate-x-full");
+         menuOverlay?.classList.remove("translate-x-0");
+         menuOverlay?.classList.add("pointer-events-none");
+         menuOverlay?.classList.remove("pointer-events-auto");
+
+         logoMenu?.classList.add("opacity-0");
+         logoMenu?.classList.remove("opacity-100");
+
+         hamburgerLines[0]?.classList.remove("rotate-45", "translate-y-2");
+         hamburgerLines[1]?.classList.remove("opacity-0");
+         hamburgerLines[2]?.classList.remove("-rotate-45", "-translate-y-2");
+      }
+   });
+
+   menuItems.forEach((item) => {
+      item.addEventListener("click", () => {
+         menuToggle?.click();
+      });
+   });
+</script>
