@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import lavaLabBg from "../assets/lavalab-bg.svg";
+import SolutionsCard from "./commons/solutions-card.astro";
+import Container from "./commons/container.astro";
+import { getLangFromUrl, getI18N } from "../i18n/utils";
+import iconPinterest from "../assets/solutions-pinterest.png";
+import iconYoutube from "../assets/solutions-yt.png";
+import iconTikTok from "../assets/solutions-tiktok.png";
+import iconInstagram from "../assets/solutions-ig.png";
+
+const lang = getLangFromUrl(Astro.url);
+const t = getI18N(lang);
+---
+
+<main class='flex flex-col w-screen relative pt-32 pb-24'>
+   <Image
+      src={lavaLabBg}
+      alt='Gradient background'
+      class='absolute inset-0 -z-20 w-full h-full object-cover'
+   />
+   <div class='relative flex flex-col items-center justify-center gap-16 px-4'>
+      <div class='flex gap-4'>
+         <h2
+            class='leading-none text-center font-black tracking-normal md:tracking-[-24px]'
+            style='font-size: clamp(4rem, 15vw, 15rem);'
+         >
+            LAVA
+         </h2>
+         <h2
+            class='leading-none opacity-50 text-center font-regular italic tracking-normal md:tracking-[-4px]'
+            style='font-size: clamp(4rem, 15vw, 15rem);'
+         >
+            lab
+         </h2>
+      </div>
+
+      <Container />
+   </div>
+</main>

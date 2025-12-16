@@ -13,28 +13,32 @@ const t = getI18N(lang);
    class='fixed inset-0 bg-[#212121] translate-x-full transition-transform duration-500 ease-in-out flex items-center z-40 pointer-events-none'
 >
    <Container>
-      <div class='space-y-2'>
+      <div style='display: flex; flex-direction: column; gap: clamp(0.5rem, 1vw, 1rem);'>
          <a
             href='#solutions'
-            class='menu-item block text-[3em] md:text-[6rem] font-extrabold px-4 italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
+            class='menu-item block font-extrabold italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
+            style='font-size: clamp(3rem, 8vw, 5rem); padding: clamp(0.5rem, 1vw, 1rem);'
          >
             {t.navbar.menu.home}
          </a>
          <a
             href='#solutions'
-            class='menu-item block text-[3rem] md:text-[6rem] font-extrabold px-4 italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
+            class='menu-item block font-extrabold italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
+            style='font-size: clamp(3rem, 8vw, 5rem); padding: clamp(0.5rem, 1vw, 1rem);'
          >
             {t.navbar.menu.solutions}
          </a>
          <a
             href='#lavalab'
-            class='menu-item block text-[3rem] md:text-[6rem] font-extrabold px-4 italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
+            class='menu-item block font-extrabold italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
+            style='font-size: clamp(3rem, 8vw, 5rem); padding: clamp(0.5rem, 1vw, 1rem);'
          >
             {t.navbar.menu.lavalab}
          </a>
          <a
             href='#contact'
-            class='menu-item block text-[3rem] md:text-[6rem] font-extrabold px-4 italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
+            class='menu-item block font-extrabold italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
+            style='font-size: clamp(3rem, 8vw, 5rem); padding: clamp(0.5rem, 1vw, 1rem);'
          >
             {t.navbar.menu.contact}
          </a>
@@ -42,13 +46,14 @@ const t = getI18N(lang);
    </Container>
 </div>
 
-<nav class='w-full py-6 fixed top-0 z-50 pointer-events-none'>
+<nav class='w-full fixed top-0 z-50 pointer-events-none' style='padding: clamp(1rem, 2vw, 1.5rem) 0;'>
    <Container>
       <div class='flex justify-between items-center'>
          <div class='pointer-events-none'>
             <Image
                src={logoWhite}
-               class='sm:w-[10rem] w-[40%] logo-menu opacity-0 transition-opacity duration-500'
+               class='logo-menu opacity-0 transition-opacity duration-500'
+               style='width: clamp(8rem, 15vw, 10rem);'
                alt='logo'
             />
          </div>

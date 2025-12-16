@@ -1,25 +1,62 @@
 ---
 import { Image } from "astro:assets";
-import lava3d from "../assets/3d-lava.png";
+import solutionsBg from "../assets/solutions-bg.svg";
 import SolutionsCard from "./commons/solutions-card.astro";
 import Container from "./commons/container.astro";
 import { getLangFromUrl, getI18N } from "../i18n/utils";
+import iconPinterest from "../assets/solutions-pinterest.png";
+import iconYoutube from "../assets/solutions-yt.png";
+import iconTikTok from "../assets/solutions-tiktok.png";
+import iconInstagram from "../assets/solutions-ig.png";
 
 const lang = getLangFromUrl(Astro.url);
 const t = getI18N(lang);
 ---
 
-<main class='h-dvh w-screen relative overflow-hidden'>
-   <div class='gradient-bg absolute inset-0 -z-20'></div>
-   <div class='noise-overlay absolute inset-0 -z-10 pointer-events-none'></div>
-   <div class='relative z-10 flex flex-col justify-center gap-40 py-32'>
+<main class='flex flex-col w-screen relative pt-32 pb-24'>
+   <Image
+      src={solutionsBg}
+      alt='Gradient background'
+      class='absolute inset-0 -z-20 w-full h-full object-cover'
+   />
+
+   <Image
+      src={iconPinterest}
+      class='parallax-icon absolute left-[25%] top-[-5%] z-10 w-[7.5rem] h-auto object-cover'
+      alt='Icon Pinterest'
+      data-speed='0.3'
+   />
+
+   <Image
+      src={iconYoutube}
+      class='parallax-icon absolute left-[2%] top-[50%] z-10 w-[6.5rem] h-auto object-cover'
+      alt='Icon Youtube'
+      data-speed='0.5'
+   />
+
+   <Image
+      src={iconTikTok}
+      class='parallax-icon absolute left-[45%] bottom-[-5%] z-10 w-[9.5rem] h-auto object-cover'
+      alt='Icon TikTok'
+      data-speed='0.2'
+   />
+
+   <Image
+      src={iconInstagram}
+      class='parallax-icon absolute right-[2%] top-[30%] z-10 w-[9rem] h-auto object-cover'
+      alt='Icon Instagram'
+      data-speed='0.4'
+   />
+
+   <div class='relative flex flex-col justify-center gap-16 px-4'>
       <h1
-         class='text-[15rem] leading-none text-center font-extrabold italic tracking-normal md:tracking-[-4px]'
+         class='leading-none text-center font-extrabold italic tracking-normal md:tracking-[-4px]'
+         style='font-size: clamp(4rem, 15vw, 15rem);'
       >
          {t.solutions.title}
       </h1>
       <Container>
-         <div class='grid grid-cols-3 gap-16'>
+         <div class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16'>
             <SolutionsCard
                title={t.solutions.cards.creatorsOrganic.title}
                description={t.solutions.cards.creatorsOrganic.description}
@@ -35,22 +72,24 @@ const t = getI18N(lang);
          </div>
       </Container>
    </div>
-
-   <Image
-      class='absolute inset-0 z-11 w-[16rem] top-[1%] left-[40%]'
-      src={lava3d}
-      alt='lava 3d'
-   />
 </main>
 
-<style>
-   .gradient-bg {
-      background: linear-gradient(to top right, #856fd7 0%, #ff7168 100%);
-   }
+<script>
+   import { animate, scroll } from "motion";
 
-   .noise-overlay {
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-      opacity: 0.15;
-      filter: blur(0.5px);
-   }
-</style>
+   const icons = document.querySelectorAll(".parallax-icon");
+
+   icons.forEach((icon) => {
+      const speed = parseFloat(icon.getAttribute("data-speed") || "0.3");
+
+      scroll(
+         animate(icon as HTMLElement, {
+            y: [0, -150 * speed],
+         }),
+         {
+            target: icon as HTMLElement,
+            offset: ["start end", "end start"],
+         }
+      );
+   });
+</script>
