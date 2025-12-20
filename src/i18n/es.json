@@ -1,6 +1,6 @@
 {
    "solutions": {
-      "title": "SOLUTIONS",
+      "title": "SOLUCIONES",
       "cards": {
          "creatorsOrganic": {
             "title": "CREATORS ORGANIC",
@@ -16,6 +16,18 @@
          }
       }
    },
+   "lavalab": {
+      "cards": {
+         "rep": {
+            "title": "REP",
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas."
+         },
+         "academy": {
+            "title": "ACADEMIA",
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas."
+         }
+      }
+   },
    "common": {
       "language": "Idioma"
    },
@@ -25,6 +37,10 @@
          "solutions": "SOLUTIONS",
          "lavalab": "LAVALab",
          "contact": "CONTACT"
+      },
+      "language": {
+         "es": "ES",
+         "en": "EN"
       }
    }
 }

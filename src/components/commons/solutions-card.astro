@@ -1,21 +1,26 @@
 ---
-const { title, description } = Astro.props;
+const { title, description, titleKey, descriptionKey } = Astro.props;
 ---
 
 <div
    class='relative flex flex-col items-center justify-center rounded-4xl overflow-hidden'
    style='gap: clamp(1.5rem, 3vw, 2.5rem); padding: clamp(1.5rem, 4vw, 2.5rem);'
 >
-   <div class='absolute w-full h-full bg-foreground opacity-28'></div>
+   <div
+      class='absolute w-full h-full bg-foreground opacity-28 pointer-events-none'
+   >
+   </div>
    <h3
-      class='lh-1 font-bold leading-none text-center'
+      class='font-secondary font-bold leading-none text-center'
       style='font-size: clamp(1.75rem, 4vw, 3rem);'
+      data-i18n={titleKey}
    >
       {title}
    </h3>
    <p
       class='font-light leading-relaxed w-full text-center'
       style='font-size: clamp(0.875rem, 1.5vw, 1.125rem);'
+      data-i18n={descriptionKey}
    >
       {description}
    </p>

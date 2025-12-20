@@ -1,40 +1,101 @@
 ---
 import { Image } from "astro:assets";
 import lavaLabBg from "../assets/lavalab-bg.svg";
-import SolutionsCard from "./commons/solutions-card.astro";
 import Container from "./commons/container.astro";
-import { getLangFromUrl, getI18N } from "../i18n/utils";
-import iconPinterest from "../assets/solutions-pinterest.png";
-import iconYoutube from "../assets/solutions-yt.png";
-import iconTikTok from "../assets/solutions-tiktok.png";
-import iconInstagram from "../assets/solutions-ig.png";
-
-const lang = getLangFromUrl(Astro.url);
-const t = getI18N(lang);
+import { defaultLang, getI18N } from "../i18n/utils";
+import labIcon1 from "../assets/lab-icon-1.svg";
+import labIcon2 from "../assets/lab-icon-2.svg";
+const t = getI18N(defaultLang);
 ---
 
 <main class='flex flex-col w-screen relative pt-32 pb-24'>
-   <Image
-      src={lavaLabBg}
-      alt='Gradient background'
-      class='absolute inset-0 -z-20 w-full h-full object-cover'
-   />
-   <div class='relative flex flex-col items-center justify-center gap-16 px-4'>
-      <div class='flex gap-4'>
-         <h2
-            class='leading-none text-center font-black tracking-normal md:tracking-[-24px]'
-            style='font-size: clamp(4rem, 15vw, 15rem);'
+   <Container>
+      <Image
+         src={lavaLabBg}
+         alt='Gradient background'
+         class='absolute inset-0 -z-20 w-full h-full gap-20 object-cover'
+      />
+      <div class='flex flex-col gap-16 items-center'>
+         <div
+            class='relative w-fit mx-auto flex flex-col items-center justify-center gap-0 px-4'
          >
-            LAVA
-         </h2>
-         <h2
-            class='leading-none opacity-50 text-center font-regular italic tracking-normal md:tracking-[-4px]'
-            style='font-size: clamp(4rem, 15vw, 15rem);'
-         >
-            lab
-         </h2>
+            <div class='flex gap-4'>
+               <h2
+                  class='leading-none text-center font-black tracking-normal md:tracking-[-2vw]'
+                  style='font-size: clamp(4rem, 15vw, 15rem);'
+               >
+                  LAVA
+               </h2>
+               <h2
+                  class='leading-none opacity-50 text-center font-regular italic tracking-normal md:tracking-[-4px]'
+                  style='font-size: clamp(4rem, 15vw, 15rem);'
+               >
+                  lab
+               </h2>
+            </div>
+            <h3
+               class='leading-none text-center font-light tracking-widest italic mt-[-10px] md:tracking-[1.5vw]'
+               style='font-size: clamp(1rem, 2.8vw, 2.5rem);'
+            >
+               Haus of Creators
+            </h3>
+         </div>
+         <div class='grid grid-cols-1 md:grid-cols-2 gap-20'>
+            <div
+               class='relative flex flex-col py-10 px-24 gap-0 items-center justify-center rounded-4xl overflow-hidden'
+            >
+               <div
+                  class='absolute w-full h-full bg-foreground opacity-28 pointer-events-none'
+               >
+               </div>
+               <Image
+                  src={labIcon1}
+                  alt='Icon REP'
+                  class='w-[5rem] h-auto object-cover'
+               />
+               <h3
+                  class='font-secondary font-thin tracking-wide'
+                  style='font-size: clamp(2rem, 4.2vw, 3.75rem);'
+                  data-i18n='lavalab.cards.rep.title'
+               >
+                  {t.lavalab.cards.rep.title}
+               </h3>
+               <p
+                  class='font-light leading-relaxed w-full text-center max-w-xs'
+                  style='font-size: clamp(1rem, 1.5vw, 1.125rem);'
+                  data-i18n='lavalab.cards.rep.description'
+               >
+                  {t.lavalab.cards.rep.description}
+               </p>
+            </div>
+            <div
+               class='relative flex flex-col py-10 px-24 gap-0 items-center justify-center rounded-4xl overflow-hidden'
+            >
+               <div
+                  class='absolute w-full h-full bg-foreground opacity-28 pointer-events-none'
+               >
+               </div>
+               <Image
+                  src={labIcon2}
+                  alt='Icon ACADEMY'
+                  class='w-[5rem] h-auto object-cover'
+               />
+               <h3
+                  class='font-secondary font-thin tracking-wide'
+                  style='font-size: clamp(2rem, 4.2vw, 3.75rem);'
+                  data-i18n='lavalab.cards.academy.title'
+               >
+                  {t.lavalab.cards.academy.title}
+               </h3>
+               <p
+                  class='font-light leading-relaxed w-full text-center max-w-xs'
+                  style='font-size: clamp(1rem, 1.5vw, 1.125rem);'
+                  data-i18n='lavalab.cards.academy.description'
+               >
+                  {t.lavalab.cards.academy.description}
+               </p>
+            </div>
+         </div>
       </div>
-
-      <Container />
-   </div>
+   </Container>
 </main>

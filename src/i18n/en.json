@@ -1,30 +1,46 @@
 {
-  "solutions": {
-    "title": "SOLUTIONS",
-    "cards": {
-      "creatorsOrganic": {
-        "title": "CREATORS ORGANIC",
-        "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
-      },
-      "ugcAds": {
-        "title": "UGC ADS",
-        "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
-      },
-      "productSeeding": {
-        "title": "PRODUCT SEEDING",
-        "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
+   "solutions": {
+      "title": "SOLUTIONS",
+      "cards": {
+         "creatorsOrganic": {
+            "title": "CREATORS ORGANIC",
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
+         },
+         "ugcAds": {
+            "title": "UGC ADS",
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
+         },
+         "productSeeding": {
+            "title": "PRODUCT SEEDING",
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
+         }
       }
-    }
-  },
-  "common": {
-    "language": "Language"
-  },
-  "navbar": {
-    "menu": {
-      "home": "HOME",
-      "solutions": "SOLUTIONS",
-      "lavalab": "LAVALab",
-      "contact": "CONTACT"
-    }
-  }
+   },
+   "lavalab": {
+      "cards": {
+         "rep": {
+            "title": "REP",
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas."
+         },
+         "academy": {
+            "title": "ACADEMY",
+            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas."
+         }
+      }
+   },
+   "common": {
+      "language": "Language"
+   },
+   "navbar": {
+      "menu": {
+         "home": "HOME",
+         "solutions": "SOLUTIONS",
+         "lavalab": "LAVALab",
+         "contact": "CONTACT"
+      },
+      "language": {
+         "es": "ES",
+         "en": "EN"
+      }
+   }
 }

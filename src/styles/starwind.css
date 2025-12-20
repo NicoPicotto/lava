@@ -62,6 +62,7 @@
 
    --font-family-primary: "Host Grotesk", system-ui, sans-serif;
    --font-family-secondary: "Archivo", system-ui, sans-serif;
+   --font-secondary: var(--font-family-secondary);
 
    --color-text-secondary: #1a1a1a;
 }
