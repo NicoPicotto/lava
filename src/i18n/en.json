@@ -28,6 +28,19 @@
          }
       }
    },
+   "contact": {
+      "title": "CONTACT",
+      "form": {
+         "name": "Name",
+         "location": "Location",
+         "email": "Email",
+         "message": "Message",
+         "messagePlaceholder": "Type your message here...",
+         "creator": "I'm a creator",
+         "brand": "I'm a brand",
+         "submit": "SUBMIT"
+      }
+   },
    "common": {
       "language": "Language"
    },

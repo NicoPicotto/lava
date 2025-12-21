@@ -1,0 +1,106 @@
+---
+import Container from "./commons/container.astro";
+import { defaultLang, getI18N } from "../i18n/utils";
+import { Label } from "@/components/starwind/label";
+import { Input } from "@/components/starwind/input";
+import { RadioGroup, RadioGroupItem } from "@/components/starwind/radio-group";
+import { Textarea } from "@/components/starwind/textarea";
+import arrow from "../assets/arrow.svg?raw";
+const t = getI18N(defaultLang);
+---
+
+<main class='flex flex-col w-screen relative pt-32 pb-24'>
+   <div class='relative flex flex-col justify-center gap-16'>
+      <h1
+         class='leading-none text-center font-extrabold italic tracking-normal md:tracking-[-4px]'
+         style='font-size: clamp(3.5rem, 15vw, 15rem);'
+         data-i18n='contact.title'
+      >
+         {t.contact.title}
+      </h1>
+      <Container>
+         <form class='flex flex-col gap-10 max-w-[62rem] mx-auto'>
+            <div class='flex flex-col gap-2'>
+               <Label for='name' data-i18n='contact.form.name'
+                  >{t.contact.form.name}</Label
+               >
+               <Input id='name' size='lg' name='name' placeholder='John Doe' />
+            </div>
+            <div class='flex flex-col gap-2'>
+               <Label for='location' data-i18n='contact.form.location'
+                  >{t.contact.form.location}</Label
+               >
+               <Input
+                  id='location'
+                  size='lg'
+                  name='city'
+                  placeholder='Australia'
+               />
+            </div>
+            <div class='flex flex-col gap-2'>
+               <Label for='email'>Email</Label>
+               <Input
+                  id='email'
+                  size='lg'
+                  name='email'
+                  placeholder='john.doe@example.com'
+               />
+            </div>
+            <RadioGroup
+               name='user-type'
+               defaultValue='creator'
+               legend='Choose an option'
+               orientation='horizontal'
+               class='gap-10'
+            >
+               <div class='flex gap-2 items-center'>
+                  <RadioGroupItem id='creator' value='creator' name='creator' />
+                  <Label for='creator' data-i18n='contact.form.creator'
+                     >{t.contact.form.creator}</Label
+                  >
+               </div>
+               <div class='flex gap-2 items-center'>
+                  <RadioGroupItem id='brand' value='brand' name='brand' />
+                  <Label for='brand' data-i18n='contact.form.brand'
+                     >{t.contact.form.brand}</Label
+                  >
+               </div>
+            </RadioGroup>
+            <div class='flex flex-col gap-2'>
+               <Label for='message' data-i18n='contact.form.message'
+                  >{t.contact.form.message}</Label
+               >
+               <Textarea
+                  id='message'
+                  size='lg'
+                  name='message'
+                  placeholder={t.contact.form.messagePlaceholder}
+                  data-i18n-placeholder='contact.form.messagePlaceholder'
+               />
+            </div>
+            <button
+               type='submit'
+               class='group self-center border-foreground border px-6 py-3 rounded-full font-medium text-foreground flex items-center gap-4 transition-all duration-300 ease-out hover:bg-foreground hover:text-background'
+               style='font-size: clamp(1.5rem, 2.8vw, 2.5rem);'
+            >
+               <span data-i18n='contact.form.submit'>{t.contact.form.submit}</span>
+               <span
+                  class='arrow-icon h-[1em] w-[1em] transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:rotate-12'
+                  set:html={arrow}
+               />
+            </button>
+         </form>
+      </Container>
+   </div>
+</main>
+
+<style>
+   .arrow-icon {
+      transform: scaleY(-1);
+      filter: invert(1);
+   }
+
+   .group:hover .arrow-icon {
+      filter: invert(0);
+   }
+</style>

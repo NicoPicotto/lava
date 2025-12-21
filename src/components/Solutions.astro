@@ -21,30 +21,26 @@ const t = getI18N(defaultLang);
 
    <Image
       src={iconPinterest}
-      class='parallax-icon absolute left-[25%] top-[-5%] z-10 w-[7.5rem] h-auto object-cover'
+      class='parallax-icon absolute left-[5%] md:left-[25%] top-[5%] md:top-[-5%] z-10 w-[3.5rem] md:w-[7.5rem] h-auto object-cover'
       alt='Icon Pinterest'
-      data-speed='0.3'
    />
 
    <Image
       src={iconYoutube}
-      class='parallax-icon absolute left-[2%] top-[50%] z-10 w-[6.5rem] h-auto object-cover'
+      class='parallax-icon absolute left-[10%] md:left-[2%] top-[50%] z-10 w-[3.5rem] md:w-[6.5rem] h-auto object-cover'
       alt='Icon Youtube'
-      data-speed='0.5'
    />
 
    <Image
       src={iconTikTok}
-      class='parallax-icon absolute left-[45%] bottom-[-5%] z-10 w-[9.5rem] h-auto object-cover'
+      class='parallax-icon absolute left-[80%] md:left-[45%] bottom-[5%] md:bottom-[-5%] z-10 w-[3.5rem] md:w-[9.5rem] h-auto object-cover'
       alt='Icon TikTok'
-      data-speed='0.2'
    />
 
    <Image
       src={iconInstagram}
-      class='parallax-icon absolute right-[2%] top-[30%] z-10 w-[9rem] h-auto object-cover'
+      class='parallax-icon absolute right-[2%] top-[30%] z-10 w-[4rem] md:w-[9rem] h-auto object-cover'
       alt='Icon Instagram'
-      data-speed='0.4'
    />
 
    <div class='relative flex flex-col justify-center gap-16'>
@@ -79,23 +75,3 @@ const t = getI18N(defaultLang);
       </Container>
    </div>
 </main>
-
-<script>
-   import { animate, scroll } from "motion";
-
-   const icons = document.querySelectorAll(".parallax-icon");
-
-   icons.forEach((icon) => {
-      const speed = parseFloat(icon.getAttribute("data-speed") || "0.3");
-
-      scroll(
-         animate(icon as HTMLElement, {
-            y: [0, -200 * speed],
-         }),
-         {
-            target: icon as HTMLElement,
-            offset: ["start end", "end start"],
-         }
-      );
-   });
-</script>

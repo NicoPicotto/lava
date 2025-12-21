@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/forms" {
+   strategy: class;
+}
 
 @theme {
    --animate-accordion-down: accordion-down 0.2s ease-out;
@@ -100,7 +102,7 @@
    * {
       @apply border-border;
    }
-   *:focus-visible {
+   *:focus-visible:not(input):not(textarea):not(select) {
       @apply outline-outline;
    }
    html {
@@ -109,6 +111,17 @@
    }
    button {
       @apply cursor-pointer;
+   }
+
+   /* Prevenir estilos de autofill del navegador */
+   input:-webkit-autofill,
+   input:-webkit-autofill:hover,
+   input:-webkit-autofill:focus,
+   input:-webkit-autofill:active {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: var(--foreground);
+      transition: background-color 5000s ease-in-out 0s;
+      box-shadow: inset 0 0 20px 20px transparent;
    }
 }
 

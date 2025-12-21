@@ -28,6 +28,19 @@
          }
       }
    },
+   "contact": {
+      "title": "CONTACTO",
+      "form": {
+         "name": "Nombre",
+         "location": "Ubicación",
+         "email": "Email",
+         "message": "Mensaje",
+         "messagePlaceholder": "Escribe tu mensaje aquí...",
+         "creator": "Soy un creador de contenido",
+         "brand": "Soy una marca",
+          "submit": "ENVIAR"
+      }
+   },
    "common": {
       "language": "Idioma"
    },

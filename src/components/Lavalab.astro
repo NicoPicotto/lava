@@ -5,10 +5,23 @@ import Container from "./commons/container.astro";
 import { defaultLang, getI18N } from "../i18n/utils";
 import labIcon1 from "../assets/lab-icon-1.svg";
 import labIcon2 from "../assets/lab-icon-2.svg";
+import lab3d from "../assets/lab-3d.png";
+import lavaIso from "../assets/3d-lava.png";
 const t = getI18N(defaultLang);
 ---
 
 <main class='flex flex-col w-screen relative pt-32 pb-24'>
+   <Image
+      src={lab3d}
+      alt='3D illustrative model'
+      class='parallax-icon absolute z-0 top-20 left-[10%] md:left-[35%] w-[27rem] h-auto object-cover'
+   />
+   <Image
+      src={lavaIso}
+      alt='3D model of the lava logo'
+      class='hidden md:block parallax-icon absolute z-10 top-[55%] left-[40%] w-[15rem] h-auto object-cover'
+   />
+
    <Container>
       <Image
          src={lavaLabBg}
@@ -21,14 +34,15 @@ const t = getI18N(defaultLang);
          >
             <div class='flex gap-4'>
                <h2
-                  class='leading-none text-center font-black tracking-normal md:tracking-[-2vw]'
-                  style='font-size: clamp(4rem, 15vw, 15rem);'
+                  class='leading-none text-center font-black tracking-normal'
+                  style='font-size: clamp(4rem, 15vw, 15rem); letter-spacing: -0.12em;'
+                  '
                >
                   LAVA
                </h2>
                <h2
-                  class='leading-none opacity-50 text-center font-regular italic tracking-normal md:tracking-[-4px]'
-                  style='font-size: clamp(4rem, 15vw, 15rem);'
+                  class='leading-none opacity-50 text-center font-black italic'
+                  style='font-size: clamp(4rem, 15vw, 15rem); letter-spacing: -0.05em;'
                >
                   lab
                </h2>
@@ -42,7 +56,7 @@ const t = getI18N(defaultLang);
          </div>
          <div class='grid grid-cols-1 md:grid-cols-2 gap-20'>
             <div
-               class='relative flex flex-col py-10 px-24 gap-0 items-center justify-center rounded-4xl overflow-hidden'
+               class='relative flex flex-col py-10 px-24 gap-0 items-center justify-center rounded-4xl overflow-hidden shadow-lg'
             >
                <div
                   class='absolute w-full h-full bg-foreground opacity-28 pointer-events-none'
@@ -69,7 +83,7 @@ const t = getI18N(defaultLang);
                </p>
             </div>
             <div
-               class='relative flex flex-col py-10 px-24 gap-0 items-center justify-center rounded-4xl overflow-hidden'
+               class='relative flex flex-col py-10 px-24 gap-0 items-center justify-center rounded-4xl overflow-hidden shadow-lg'
             >
                <div
                   class='absolute w-full h-full bg-foreground opacity-28 pointer-events-none'

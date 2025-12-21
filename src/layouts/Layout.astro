@@ -39,11 +39,6 @@ const { noindex = false, showNav = true } = Astro.props;
 
       const lenis = new Lenis({ lerp: 0.9 });
 
-      //get scroll value
-      lenis.on("scroll", (e) => {
-         console.log(e);
-      });
-
       function raf(time: number) {
          lenis.raf(time);
          requestAnimationFrame(raf);
@@ -51,33 +46,33 @@ const { noindex = false, showNav = true } = Astro.props;
 
       requestAnimationFrame(raf);
    </script>
+   <script>
+      import { animate, scroll } from "motion";
+
+      const icons = document.querySelectorAll(".parallax-icon");
+
+      icons.forEach((icon) => {
+         const htmlIcon = icon as HTMLElement;
+
+         const width = htmlIcon.offsetWidth;
+         const baseSpeed = 70;
+         const speed = baseSpeed / width;
+         const distance = -150 * speed;
+
+         scroll(
+            animate(htmlIcon, {
+               y: [0, distance],
+            }),
+            {
+               target: htmlIcon,
+               offset: ["start end", "end start"],
+            }
+         );
+      });
+   </script>
 </html>
 
 <style>
-   /* html {
-      font-size: 1.4875rem;
-   }
-   @media screen and (max-width: 2500px) {
-      html {
-         font-size: calc(0.0012195121951217303rem + 0.9512195121951221vw);
-      }
-   }
-   @media screen and (max-width: 1680px) {
-      html {
-         font-size: calc(0.0002902757619738239rem + 0.9521044992743106vw);
-      }
-   }
-   @media screen and (max-width: 991px) {
-      html {
-         font-size: calc(0.3rem + 0.4vw);
-      }
-   }
-   @media screen and (max-width: 479px) {
-      html {
-         font-size: calc(0.15rem + 0.35vw);
-      }
-   } */
-
    html,
    body {
       margin: 0;
