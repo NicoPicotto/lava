@@ -19,12 +19,24 @@ const t = getI18N(defaultLang);
          {t.contact.title}
       </h1>
       <Container>
-         <form class='flex flex-col gap-10 max-w-[62rem] mx-auto'>
+         <form
+            id='contact-form'
+            class='flex flex-col gap-10 max-w-[62rem] mx-auto'
+            data-msg-sending={t.contact.form.sending}
+            data-msg-success={t.contact.form.success}
+            data-msg-error={t.contact.form.error}
+         >
             <div class='flex flex-col gap-2'>
                <Label for='name' data-i18n='contact.form.name'
                   >{t.contact.form.name}</Label
                >
-               <Input id='name' size='lg' name='name' placeholder='John Doe' />
+               <Input
+                  id='name'
+                  size='lg'
+                  name='name'
+                  placeholder='John Doe'
+                  required
+               />
             </div>
             <div class='flex flex-col gap-2'>
                <Label for='location' data-i18n='contact.form.location'
@@ -33,7 +45,7 @@ const t = getI18N(defaultLang);
                <Input
                   id='location'
                   size='lg'
-                  name='city'
+                  name='location'
                   placeholder='Australia'
                />
             </div>
@@ -43,24 +55,26 @@ const t = getI18N(defaultLang);
                   id='email'
                   size='lg'
                   name='email'
+                  type='email'
                   placeholder='john.doe@example.com'
+                  required
                />
             </div>
             <RadioGroup
-               name='user-type'
+               name='type'
                defaultValue='creator'
                legend='Choose an option'
                orientation='horizontal'
                class='gap-10'
             >
                <div class='flex gap-2 items-center'>
-                  <RadioGroupItem id='creator' value='creator' name='creator' />
+                  <RadioGroupItem id='creator' value='creator' name='type' />
                   <Label for='creator' data-i18n='contact.form.creator'
                      >{t.contact.form.creator}</Label
                   >
                </div>
                <div class='flex gap-2 items-center'>
-                  <RadioGroupItem id='brand' value='brand' name='brand' />
+                  <RadioGroupItem id='brand' value='brand' name='type' />
                   <Label for='brand' data-i18n='contact.form.brand'
                      >{t.contact.form.brand}</Label
                   >
@@ -76,14 +90,23 @@ const t = getI18N(defaultLang);
                   name='message'
                   placeholder={t.contact.form.messagePlaceholder}
                   data-i18n-placeholder='contact.form.messagePlaceholder'
+                  required
                />
+            </div>
+            <div
+               id='form-message'
+               class='text-center font-medium min-h-[1rem] transition-opacity duration-300 opacity-0'
+            >
             </div>
             <button
                type='submit'
-               class='group self-center border-foreground border px-6 py-3 rounded-full font-medium text-foreground flex items-center gap-4 transition-all duration-300 ease-out hover:bg-foreground hover:text-background'
+               id='submit-btn'
+               class='group self-center border-foreground border px-6 py-3 rounded-full font-medium text-foreground flex items-center gap-4 transition-all duration-300 ease-out hover:bg-foreground hover:text-background disabled:opacity-50 disabled:cursor-not-allowed'
                style='font-size: clamp(1.5rem, 2.8vw, 2.5rem);'
             >
-               <span data-i18n='contact.form.submit'>{t.contact.form.submit}</span>
+               <span id='submit-text' data-i18n='contact.form.submit'
+                  >{t.contact.form.submit}</span
+               >
                <span
                   class='arrow-icon h-[1em] w-[1em] transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:rotate-12'
                   set:html={arrow}
@@ -93,6 +116,67 @@ const t = getI18N(defaultLang);
       </Container>
    </div>
 </main>
+
+<script>
+   const form = document.getElementById("contact-form") as HTMLFormElement;
+   const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+   const submitText = document.getElementById("submit-text") as HTMLSpanElement;
+   const formMessage = document.getElementById(
+      "form-message"
+   ) as HTMLDivElement;
+
+   const messages = {
+      sending: form.dataset.msgSending || "Sending...",
+      success: form.dataset.msgSuccess || "Message sent successfully!",
+      error: form.dataset.msgError || "Something went wrong. Please try again.",
+   };
+
+   const originalButtonText = submitText.textContent || "Send";
+
+   form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      formMessage.style.opacity = "0";
+      submitBtn.disabled = true;
+      submitText.textContent = messages.sending;
+
+      const formData = new FormData(form);
+
+      try {
+         const response = await fetch("/sendEmail.php", {
+            method: "POST",
+            body: formData,
+         });
+
+         const data = await response.json();
+
+         if (data.success) {
+            formMessage.textContent = messages.success;
+            formMessage.classList.add("text-green-600");
+            formMessage.classList.remove("text-red-600");
+            form.reset();
+         } else {
+            formMessage.textContent = messages.error;
+            formMessage.classList.add("text-red-600");
+            formMessage.classList.remove("text-green-600");
+         }
+
+         formMessage.style.opacity = "1";
+      } catch (error) {
+         formMessage.textContent = messages.error;
+         formMessage.classList.add("text-red-600");
+         formMessage.classList.remove("text-green-600");
+         formMessage.style.opacity = "1";
+      } finally {
+         submitBtn.disabled = false;
+         submitText.textContent = originalButtonText;
+
+         setTimeout(() => {
+            formMessage.style.opacity = "0";
+         }, 5000);
+      }
+   });
+</script>
 
 <style>
    .arrow-icon {

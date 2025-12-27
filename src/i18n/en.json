@@ -36,10 +36,13 @@
          "location": "Location",
          "email": "Email",
          "message": "Message",
-         "messagePlaceholder": "Tell us about your project or what you’re looking for...",
+         "messagePlaceholder": "Tell us about your project or what you're looking for...",
          "creator": "I'm a creator",
          "brand": "I'm a brand",
-         "submit": "SUBMIT"
+         "submit": "SUBMIT",
+         "sending": "Sending...",
+         "success": "We've received your message and will get back to you shortly!",
+         "error": "Something went wrong. Please try again or contact us at hello@lavaugc.com."
       }
    },
    "common": {
@@ -59,6 +62,6 @@
    },
    "footer": {
       "humanizing": "Humanizing your brand",
-      "copyright": "Copyright © 2025 Lava UGC Agency All rights reserved."
+      "copyright": "Copyright © 2026 Lava UGC Agency All rights reserved."
    }
 }

@@ -1,0 +1,97 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo-color.svg";
+---
+
+<div
+   id='loading-screen'
+   class='fixed inset-0 z-50 flex flex-col items-center justify-center bg-black'
+>
+   <div class='flex flex-col items-center gap-8 max-w-[80%] w-full'>
+      <Image
+         src={logo}
+         id='loading-logo'
+         class='w-full max-w-[600px]'
+         alt='LAVA Logo'
+         style='filter: grayscale(1);'
+      />
+      <div class='w-full max-w-[400px]'>
+         <div class='h-1 bg-white/20 rounded-full overflow-hidden'>
+            <div
+               id='progress-bar'
+               class='h-full bg-white rounded-full'
+               style='width: 0%;'
+            >
+            </div>
+         </div>
+         <p
+            id='progress-text'
+            class='text-white text-sm mt-2 text-center font-mono'
+         >
+            0%
+         </p>
+      </div>
+   </div>
+</div>
+
+<script>
+   import { animate } from "motion";
+
+   const loadingScreen = document.getElementById(
+      "loading-screen"
+   ) as HTMLElement;
+   const loadingLogo = document.getElementById("loading-logo") as HTMLElement;
+   const progressBar = document.getElementById("progress-bar") as HTMLElement;
+   const progressText = document.getElementById("progress-text") as HTMLElement;
+   const heroVideo = document.querySelector("#hero-video") as HTMLVideoElement;
+
+   let progressValue = 0;
+   let animationComplete = false;
+
+   const progressInterval = setInterval(() => {
+      if (progressValue < 90 && !animationComplete) {
+         progressValue += Math.random() * 15;
+         if (progressValue > 90) progressValue = 90;
+
+         progressBar.style.width = `${progressValue}%`;
+         progressText.textContent = `${Math.round(progressValue)}%`;
+
+         const grayscaleValue = 1 - progressValue / 100;
+         loadingLogo.style.filter = `grayscale(${grayscaleValue})`;
+      }
+   }, 200);
+
+   const completeLoading = () => {
+      if (animationComplete) return;
+      animationComplete = true;
+
+      clearInterval(progressInterval);
+
+      progressBar.style.transition = "width 0.3s ease-out";
+      progressBar.style.width = "100%";
+
+      progressText.textContent = "100%";
+
+      loadingLogo.style.transition = "filter 0.3s ease-out";
+      loadingLogo.style.filter = "grayscale(0)";
+
+      setTimeout(() => {
+         loadingScreen.style.transition = "transform 0.8s ease-in-out";
+         loadingScreen.style.transform = "translateY(-100%)";
+
+         setTimeout(() => {
+            loadingScreen.style.display = "none";
+         }, 800);
+      }, 500);
+   };
+
+   if (heroVideo) {
+      heroVideo.addEventListener("canplaythrough", completeLoading, {
+         once: true,
+      });
+
+      setTimeout(completeLoading, 5000);
+   } else {
+      setTimeout(completeLoading, 2000);
+   }
+</script>

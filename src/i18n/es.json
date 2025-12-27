@@ -39,7 +39,10 @@
          "messagePlaceholder": "Contanos sobre un proyecto que tengas en mente...",
          "creator": "Soy un creador de contenido",
          "brand": "Soy una marca",
-         "submit": "ENVIAR"
+         "submit": "ENVIAR",
+         "sending": "Enviando...",
+         "success": "Hemos recibido tu mensaje y te responderemos pronto!",
+         "error": "Algo salió mal. Por favor intenta nuevamente o contáctanos en hello@lavaugc.com."
       }
    },
    "common": {
@@ -59,6 +62,6 @@
    },
    "footer": {
       "humanizing": "Humanizando tu marca",
-      "copyright": "Copyright © 2025 Lava UGC Agency todos los derechos reservados."
+      "copyright": "Copyright © 2026 Lava UGC Agency todos los derechos reservados."
    }
 }

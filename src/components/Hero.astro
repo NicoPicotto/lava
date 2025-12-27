@@ -2,15 +2,20 @@
 import heroVideo from "../assets/hero-video.mp4";
 import { Image } from "astro:assets";
 import logo from "../assets/logo-white-claim.svg";
+import LoadingScreen from "./LoadingScreen.astro";
 ---
+
+<LoadingScreen />
 
 <main class='h-dvh w-screen relative'>
    <video
+      id='hero-video'
       class='w-full h-full absolute object-cover -z-2'
       autoplay
       loop
       muted
       playsinline
+      preload='auto'
    >
       <source src={heroVideo} type='video/mp4' />
    </video>
