@@ -9,12 +9,14 @@ import logoWhite from "../../assets/logo-white.svg";
    class='fixed inset-0 bg-[#212121] translate-x-full transition-transform duration-500 ease-in-out flex items-center z-40 pointer-events-none'
 >
    <Container>
-      <div style='display: flex; flex-direction: column; gap: clamp(0.5rem, 1vw, 1rem);'>
+      <div
+         style='display: flex; flex-direction: column; gap: clamp(0.5rem, 1vw, 1rem);'
+      >
          <a
             href='#solutions'
             class='menu-item block font-extrabold italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
             style='font-size: clamp(3rem, 8vw, 5rem); padding: clamp(0.5rem, 1vw, 1rem);'
-            data-i18n="navbar.menu.home"
+            data-i18n='navbar.menu.home'
          >
             HOME
          </a>
@@ -22,7 +24,7 @@ import logoWhite from "../../assets/logo-white.svg";
             href='#solutions'
             class='menu-item block font-extrabold italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
             style='font-size: clamp(3rem, 8vw, 5rem); padding: clamp(0.5rem, 1vw, 1rem);'
-            data-i18n="navbar.menu.solutions"
+            data-i18n='navbar.menu.solutions'
          >
             SOLUTIONS
          </a>
@@ -30,7 +32,7 @@ import logoWhite from "../../assets/logo-white.svg";
             href='#lavalab'
             class='menu-item block font-extrabold italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
             style='font-size: clamp(3rem, 8vw, 5rem); padding: clamp(0.5rem, 1vw, 1rem);'
-            data-i18n="navbar.menu.lavalab"
+            data-i18n='navbar.menu.lavalab'
          >
             LAVALab
          </a>
@@ -38,7 +40,7 @@ import logoWhite from "../../assets/logo-white.svg";
             href='#contact'
             class='menu-item block font-extrabold italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
             style='font-size: clamp(3rem, 8vw, 5rem); padding: clamp(0.5rem, 1vw, 1rem);'
-            data-i18n="navbar.menu.contact"
+            data-i18n='navbar.menu.contact'
          >
             CONTACT
          </a>
@@ -46,35 +48,29 @@ import logoWhite from "../../assets/logo-white.svg";
    </Container>
 </div>
 
-<nav class='w-full fixed top-0 z-50 pointer-events-none' style='padding: clamp(1rem, 2vw, 1.5rem) 0;'>
+<nav
+   class='w-full fixed top-0 z-50 pointer-events-none'
+   style='padding: clamp(1rem, 2vw, 1.5rem) 0;'
+>
    <Container>
       <div class='flex justify-between items-center'>
-         <div class='relative flex items-center '>
-            <!-- Logo (visible cuando el menú está abierto) -->
-            <Image
-               src={logoWhite}
-               class='logo-menu opacity-0 transition-opacity duration-500 pointer-events-none'
-               style='width: clamp(8rem, 15vw, 10rem);'
-               alt='logo'
-            />
-
+         <div class='flex items-center gap-4'>
             <!-- Botones de idioma (visibles cuando el menú está cerrado) -->
-            <div class='language-switcher flex gap-2 opacity-100 transition-opacity duration-500 pointer-events-auto absolute md:top-8 left-0 '>
-               <button
-                  class='lang-btn w-14 h-14 flex items-center justify-center border rounded-full border-foreground transition-all duration-300 text-sm font-medium pointer-events-auto hover:bg-foreground/5 backdrop-blur-sm'
-                  data-lang='en'
-                  aria-label='Change language to English'
-               >
-                  EN
-               </button>
-               <button
-                  class='lang-btn w-14 h-14 flex items-center justify-center border rounded-full border-foreground transition-all duration-300 text-sm font-medium pointer-events-auto hover:bg-foreground/5 backdrop-blur-sm'
-                  data-lang='es'
-                  aria-label='Change language to Español'
-               >
-                  ES
-               </button>
-            </div>
+
+            <button
+               class='lang-btn w-14 h-14 flex items-center justify-center border rounded-full border-foreground transition-all duration-300 text-sm font-medium pointer-events-auto hover:bg-foreground/5 backdrop-blur-sm'
+               data-lang='en'
+               aria-label='Change language to English'
+            >
+               EN
+            </button>
+            <button
+               class='lang-btn w-14 h-14 flex items-center justify-center border rounded-full border-foreground transition-all duration-300 text-sm font-medium pointer-events-auto hover:bg-foreground/5 backdrop-blur-sm'
+               data-lang='es'
+               aria-label='Change language to Español'
+            >
+               ES
+            </button>
          </div>
 
          <button
@@ -97,31 +93,31 @@ import logoWhite from "../../assets/logo-white.svg";
 </nav>
 
 <script>
-   import { getI18N, defaultLang, type Language } from '@/i18n/utils';
+   import { getI18N, defaultLang, type Language } from "@/i18n/utils";
 
    const menuToggle = document.getElementById("menu-toggle");
    const menuOverlay = document.getElementById("menu-overlay");
    const hamburgerLines = document.querySelectorAll(".hamburger-line");
    const logoMenu = document.querySelector(".logo-menu");
-   const languageSwitcher = document.querySelector(".language-switcher");
    const menuItems = document.querySelectorAll(".menu-item");
    const langButtons = document.querySelectorAll(".lang-btn");
 
    let isMenuOpen = false;
-   let currentLang: Language = (localStorage.getItem('lang') as Language) || defaultLang;
+   let currentLang: Language =
+      (localStorage.getItem("lang") as Language) || defaultLang;
 
    // Función para actualizar textos
    function updateLanguage(lang: Language) {
       currentLang = lang;
-      localStorage.setItem('lang', lang);
+      localStorage.setItem("lang", lang);
 
       const t = getI18N(lang);
 
       // Actualizar todos los elementos con data-i18n
-      document.querySelectorAll('[data-i18n]').forEach((element) => {
-         const key = element.getAttribute('data-i18n');
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+         const key = element.getAttribute("data-i18n");
          if (key) {
-            const keys = key.split('.');
+            const keys = key.split(".");
             let value: any = t;
             for (const k of keys) {
                value = value[k];
@@ -133,34 +129,41 @@ import logoWhite from "../../assets/logo-white.svg";
       });
 
       // Actualizar placeholders
-      document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
-         const key = element.getAttribute('data-i18n-placeholder');
-         if (key) {
-            const keys = key.split('.');
-            let value: any = t;
-            for (const k of keys) {
-               value = value[k];
+      document
+         .querySelectorAll("[data-i18n-placeholder]")
+         .forEach((element) => {
+            const key = element.getAttribute("data-i18n-placeholder");
+            if (key) {
+               const keys = key.split(".");
+               let value: any = t;
+               for (const k of keys) {
+                  value = value[k];
+               }
+               if (
+                  (value && element instanceof HTMLInputElement) ||
+                  element instanceof HTMLTextAreaElement
+               ) {
+                  element.placeholder = value;
+               }
             }
-            if (value && element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement) {
-               element.placeholder = value;
-            }
-         }
-      });
+         });
 
       // Actualizar estado activo de los botones
       langButtons.forEach((btn) => {
-         const btnLang = btn.getAttribute('data-lang');
+         const btnLang = btn.getAttribute("data-lang");
          if (btnLang === lang) {
-            btn.classList.add('bg-foreground/10');
-            btn.classList.remove('hover:bg-foreground/5');
+            btn.classList.add("bg-foreground/10");
+            btn.classList.remove("hover:bg-foreground/5");
          } else {
-            btn.classList.remove('bg-foreground/10');
-            btn.classList.add('hover:bg-foreground/5');
+            btn.classList.remove("bg-foreground/10");
+            btn.classList.add("hover:bg-foreground/5");
          }
       });
 
       // Disparar evento personalizado para que otros componentes puedan reaccionar
-      window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
+      window.dispatchEvent(
+         new CustomEvent("languageChanged", { detail: { lang } })
+      );
    }
 
    // Inicializar idioma al cargar
@@ -181,9 +184,6 @@ import logoWhite from "../../assets/logo-white.svg";
          logoMenu?.classList.remove("opacity-0", "pointer-events-none");
          logoMenu?.classList.add("opacity-100", "pointer-events-auto");
 
-         languageSwitcher?.classList.remove("opacity-100", "pointer-events-auto");
-         languageSwitcher?.classList.add("opacity-0", "pointer-events-none");
-
          // Animar hamburger a X
          hamburgerLines[0]?.classList.add("rotate-45", "translate-y-2");
          hamburgerLines[1]?.classList.add("opacity-0");
@@ -198,9 +198,6 @@ import logoWhite from "../../assets/logo-white.svg";
          // Ocultar logo, mostrar botones de idioma
          logoMenu?.classList.add("opacity-0", "pointer-events-none");
          logoMenu?.classList.remove("opacity-100", "pointer-events-auto");
-
-         languageSwitcher?.classList.add("opacity-100", "pointer-events-auto");
-         languageSwitcher?.classList.remove("opacity-0", "pointer-events-none");
 
          // Revertir hamburger
          hamburgerLines[0]?.classList.remove("rotate-45", "translate-y-2");

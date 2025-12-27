@@ -3,28 +3,29 @@
       "title": "SOLUTIONS",
       "cards": {
          "creatorsOrganic": {
-            "title": "CREATORS ORGANIC",
-            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
+            "title": "ORGANIC CAMPAIGNS",
+            "description": "End-to-end organic campaigns where brand integrations feel like genuine recommendations — not ads. Built to be credible, native and relevant on each platform."
          },
          "ugcAds": {
-            "title": "UGC ADS",
-            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
+            "title": "UGC PRODUCTION",
+            "description": "Scalable UGC designed to support brand and performance goals. High-quality, eye-catching content created in the native language of each platform."
          },
          "productSeeding": {
             "title": "PRODUCT SEEDING",
-            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
+            "description": "Strategic product seeding to expand reach and product presence across key platforms. Built to drive organic visibility and long-term creator relationships."
          }
       }
    },
    "lavalab": {
+      "builtForCreators": "Built for Creators",
       "cards": {
          "rep": {
             "title": "REP",
-            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas."
+            "description": "We represent creators in brand partnerships, negotiating fair agreements and building sustainable, long-term collaborations. Focused on the right brand fit, sustainability and creative integrity."
          },
          "academy": {
             "title": "ACADEMY",
-            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas."
+            "description": "Education and strategic guidance for creators who want to professionalize their content and grow within the creator economy. Built to turn creativity into a sustainable career."
          }
       }
    },
@@ -35,7 +36,7 @@
          "location": "Location",
          "email": "Email",
          "message": "Message",
-         "messagePlaceholder": "Type your message here...",
+         "messagePlaceholder": "Tell us about your project or what you’re looking for...",
          "creator": "I'm a creator",
          "brand": "I'm a brand",
          "submit": "SUBMIT"
@@ -55,5 +56,9 @@
          "es": "ES",
          "en": "EN"
       }
+   },
+   "footer": {
+      "humanizing": "Humanizing your brand",
+      "copyright": "Copyright © 2025 Lava UGC Agency All rights reserved."
    }
 }

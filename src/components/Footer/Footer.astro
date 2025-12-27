@@ -1,0 +1,52 @@
+---
+import Container from "../commons/container.astro";
+import { Image } from "astro:assets";
+import { defaultLang, getI18N } from "../../i18n/utils";
+import linkedinLogo from "../../assets/linkedin-logo.svg";
+import instagramLogo from "../../assets/instagram-logo.svg";
+import logoFooter from "../../assets/logo-footer.svg";
+const t = getI18N(defaultLang);
+---
+
+<footer class='md:pt-40 pt-10 bg-foreground'>
+   <Container>
+      <div class='flex flex-col gap-0 items-center w-fit mx-auto'>
+         <h3
+            class='text-background text-center font-light'
+            data-i18n='footer.humanizing'
+            style='font-size: clamp(2rem, 4.2vw, 3.75rem);'
+         >
+            {t.footer.humanizing}
+         </h3>
+         <div class='flex justify-between items-center w-full'>
+            <div class='flex items-end gap-2'>
+               <Image
+                  src={linkedinLogo}
+                  alt='LinkedIn Logo'
+                  class='w-6 h-auto object-cover'
+               />
+               <Image
+                  src={instagramLogo}
+                  alt='Instagram Logo'
+                  class='w-5 h-auto object-cover'
+               />
+            </div>
+            <a
+               href='mailto:hello@lavaugc.com'
+               class='font-secondary font-light text-background'
+               style='font-size: clamp(1rem, 2vw, 1rem);'>hello@lavaugc.com</a
+            >
+         </div>
+         <span
+            class='font-secondary text-center font-light text-background mt-20 mb-10'
+            style='font-size: clamp(1rem, 2vw, 1rem);'
+            data-i18n='footer.copyright'
+         >
+            {t.footer.copyright}</span
+         >
+      </div>
+      <div class='md:w-[50rem] sm:w-full w-full mx-auto'>
+         <Image src={logoFooter} alt='Logo Lava UGC' class='w-full h-auto' />
+      </div>
+   </Container>
+</footer>

@@ -5,15 +5,17 @@ import logo from "../assets/logo-white-claim.svg";
 ---
 
 <main class='h-dvh w-screen relative'>
-   <video class='w-full h-full absolute object-cover -z-2' autoplay loop muted>
+   <video
+      class='w-full h-full absolute object-cover -z-2'
+      autoplay
+      loop
+      muted
+      playsinline
+   >
       <source src={heroVideo} type='video/mp4' />
    </video>
    <div class='absolute w-full h-full -z-1 bg-text-secondary opacity-50'></div>
    <div class='flex flex-col items-center justify-center h-full w-full z-3'>
-      <Image
-               src={logo}
-               class='w-full max-w-[80%] logo-default'
-               alt='logo'
-            />
+      <Image src={logo} class='w-full max-w-[80%] logo-default' alt='logo' />
    </div>
 </main>

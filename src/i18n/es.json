@@ -17,6 +17,7 @@
       }
    },
    "lavalab": {
+      "builtForCreators": "Hecho para Creadores",
       "cards": {
          "rep": {
             "title": "REP",
@@ -35,10 +36,10 @@
          "location": "Ubicación",
          "email": "Email",
          "message": "Mensaje",
-         "messagePlaceholder": "Escribe tu mensaje aquí...",
+         "messagePlaceholder": "Contanos sobre un proyecto que tengas en mente...",
          "creator": "Soy un creador de contenido",
          "brand": "Soy una marca",
-          "submit": "ENVIAR"
+         "submit": "ENVIAR"
       }
    },
    "common": {
@@ -47,13 +48,17 @@
    "navbar": {
       "menu": {
          "home": "HOME",
-         "solutions": "SOLUTIONS",
+         "solutions": "SOLUCIONES",
          "lavalab": "LAVALab",
-         "contact": "CONTACT"
+         "contact": "CONTACTO"
       },
       "language": {
          "es": "ES",
          "en": "EN"
       }
+   },
+   "footer": {
+      "humanizing": "Humanizando tu marca",
+      "copyright": "Copyright © 2025 Lava UGC Agency todos los derechos reservados."
    }
 }
