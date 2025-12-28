@@ -10,7 +10,10 @@ import lavaIso from "../assets/3d-lava.png";
 const t = getI18N(defaultLang);
 ---
 
-<main class='flex flex-col w-screen relative pt-32 pb-24 overflow-x-hidden' id='lavalab'>
+<main
+   class='flex flex-col w-screen relative pt-12 md:pt-32 pb-12 md:pb-24 overflow-x-hidden'
+   id='lavalab'
+>
    <Image
       src={lab3d}
       alt='3D illustrative model'
@@ -56,11 +59,11 @@ const t = getI18N(defaultLang);
             </h3>
          </div>
          <div
-            class='grid grid-cols-1 md:grid-cols-2 gap-20'
+            class='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20'
             data-animate='stagger-container'
          >
             <div
-               class='relative flex flex-col py-10 px-24 gap-0 items-center justify-center rounded-4xl overflow-hidden shadow-lg'
+               class='relative flex flex-col py-10 px-12 md:px-24 gap-0 items-center justify-center rounded-4xl overflow-hidden shadow-lg'
                data-animate='stagger-item'
             >
                <div
@@ -88,7 +91,7 @@ const t = getI18N(defaultLang);
                </p>
             </div>
             <div
-               class='relative flex flex-col py-10 px-24 gap-0 items-center justify-center rounded-4xl overflow-hidden shadow-lg'
+               class='relative flex flex-col py-10 px-12 md:px-24 gap-0 items-center justify-center rounded-4xl overflow-hidden shadow-lg'
                data-animate='stagger-item'
             >
                <div

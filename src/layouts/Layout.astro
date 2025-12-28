@@ -2,6 +2,7 @@
 // style import
 import "@/styles/starwind.css";
 import Navbar from "../components/navbar/navbar.astro";
+import LoadingScreen from "@/components/LoadingScreen.astro";
 
 interface Props {
    noindex?: boolean;
@@ -33,8 +34,11 @@ const { noindex = false, showNav = true } = Astro.props;
       <title>LAVA UGC Agency | Creator Campaigns & UGC Production</title>
    </head>
    <body>
+      <LoadingScreen />
       {showNav && <Navbar />}
-      <slot />
+      <main class='main-content'>
+         <slot />
+      </main>
    </body>
 
    <script>
@@ -192,5 +196,10 @@ const { noindex = false, showNav = true } = Astro.props;
       margin: 0;
       width: 100%;
       height: 100%;
+   }
+   .main-content {
+      position: relative;
+      z-index: 10;
+      background: var(--background);
    }
 </style>
