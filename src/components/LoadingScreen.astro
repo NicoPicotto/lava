@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/logo-color.svg";
+import logo from "../assets/gota-color.svg";
 ---
 
 <div
@@ -11,7 +11,7 @@ import logo from "../assets/logo-color.svg";
       <Image
          src={logo}
          id='loading-logo'
-         class='w-full max-w-[600px]'
+         class='w-full max-w-[200px]'
          alt='LAVA Logo'
          style='filter: grayscale(1);'
       />
@@ -35,8 +35,6 @@ import logo from "../assets/logo-color.svg";
 </div>
 
 <script>
-   import { animate } from "motion";
-
    const loadingScreen = document.getElementById(
       "loading-screen"
    ) as HTMLElement;
