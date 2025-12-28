@@ -28,7 +28,7 @@ const { noindex = false, showNav = true } = Astro.props;
          name='description'
          content='LAVA is a global UGC and creator marketing agency helping brands grow through organic campaigns, scalable UGC production and strategic product seeding.'
       />
-      <meta name='keywords' content='LAVA, UGC, Agencia, Marketing, RRSS' />
+      <meta name='keywords' content='LAVA, UGC, Agency, Marketing, RRSS' />
       {noindex && <meta name='robots' content='noindex, nofollow' />}
       <title>LAVA UGC Agency | Creator Campaigns & UGC Production</title>
    </head>
@@ -72,6 +72,117 @@ const { noindex = false, showNav = true } = Astro.props;
             }
          );
       });
+   </script>
+   <!-- Motion Animations -->
+   <script>
+      import { animate, scroll } from "motion";
+
+      const easeExpoOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+      // ===================
+      // 1. PARALLAX ICONS
+      // ===================
+      document
+         .querySelectorAll<HTMLElement>(".parallax-icon")
+         .forEach((icon) => {
+            const width = icon.offsetWidth;
+            const baseSpeed = 70;
+            const speed = baseSpeed / width;
+            const distance = -150 * speed;
+
+            scroll(
+               animate(icon, {
+                  y: [0, distance],
+               }),
+               {
+                  target: icon,
+                  offset: ["start end", "end start"],
+               }
+            );
+         });
+
+      // ===================
+      // 2. SLIDE UP ON SCROLL
+      // ===================
+      document
+         .querySelectorAll<HTMLElement>("[data-animate='slide-up']")
+         .forEach((element) => {
+            scroll(
+               animate(
+                  element,
+                  { opacity: [0, 1], y: [30, 0] },
+                  { ease: easeExpoOut }
+               ),
+               {
+                  target: element,
+                  offset: ["start 0.85", "start 0.4"],
+               }
+            );
+         });
+
+      // ===================
+      // 3. FADE IN ON SCROLL
+      // ===================
+      document
+         .querySelectorAll<HTMLElement>("[data-animate='fade-in']")
+         .forEach((element) => {
+            scroll(
+               animate(element, { opacity: [0, 1] }, { ease: easeExpoOut }),
+               {
+                  target: element,
+                  offset: ["start 0.85", "start 0.5"],
+               }
+            );
+         });
+
+      // ===================
+      // 4. STAGGER CARDS
+      // ===================
+      document
+         .querySelectorAll<HTMLElement>("[data-animate='stagger-container']")
+         .forEach((container) => {
+            const items = container.querySelectorAll<HTMLElement>(
+               "[data-animate='stagger-item']"
+            );
+
+            items.forEach((item, index) => {
+               const staggerDelay = index * 0.08;
+
+               scroll(
+                  animate(
+                     item,
+                     { opacity: [0, 1], y: [40, 0] },
+                     { ease: easeExpoOut }
+                  ),
+                  {
+                     target: container,
+                     offset: [
+                        `start ${0.85 - staggerDelay}`,
+                        `start ${0.4 - staggerDelay}`,
+                     ],
+                  }
+               );
+            });
+         });
+
+      // ===================
+      // 5. SCALE UP ON SCROLL
+      // ===================
+      document
+         .querySelectorAll<HTMLElement>("[data-animate='scale-up']")
+         .forEach((element) => {
+            scroll(
+               animate(
+                  element,
+                  { opacity: [0, 1], scale: [0.9, 1] },
+                  { ease: easeExpoOut }
+               ),
+               {
+                  target: element,
+                  offset: ["start 0.85", "start 0.4"],
+               }
+            );
+         });
    </script>
 </html>
 

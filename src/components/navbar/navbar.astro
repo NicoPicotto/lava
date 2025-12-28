@@ -13,7 +13,7 @@ import logoWhite from "../../assets/logo-white.svg";
          style='display: flex; flex-direction: column; gap: clamp(0.5rem, 1vw, 1rem);'
       >
          <a
-            href='#solutions'
+            href='#hero'
             class='menu-item block font-extrabold italic text-white hover:bg-primary hover:text-background transition-colors duration-300 pointer-events-auto'
             style='font-size: clamp(3rem, 8vw, 5rem); padding: clamp(0.5rem, 1vw, 1rem);'
             data-i18n='navbar.menu.home'
@@ -53,8 +53,8 @@ import logoWhite from "../../assets/logo-white.svg";
    style='padding: clamp(1rem, 2vw, 1.5rem) 0;'
 >
    <Container>
-      <div class='flex justify-between items-center'>
-         <div class='flex items-center gap-4'>
+      <div class='flex justify-between items-center mt-2'>
+         <div class='flex items-center gap-2'>
             <!-- Botones de idioma (visibles cuando el menú está cerrado) -->
 
             <button
@@ -106,14 +106,12 @@ import logoWhite from "../../assets/logo-white.svg";
    let currentLang: Language =
       (localStorage.getItem("lang") as Language) || defaultLang;
 
-   // Función para actualizar textos
    function updateLanguage(lang: Language) {
       currentLang = lang;
       localStorage.setItem("lang", lang);
 
       const t = getI18N(lang);
 
-      // Actualizar todos los elementos con data-i18n
       document.querySelectorAll("[data-i18n]").forEach((element) => {
          const key = element.getAttribute("data-i18n");
          if (key) {
@@ -128,7 +126,6 @@ import logoWhite from "../../assets/logo-white.svg";
          }
       });
 
-      // Actualizar placeholders
       document
          .querySelectorAll("[data-i18n-placeholder]")
          .forEach((element) => {
@@ -148,7 +145,6 @@ import logoWhite from "../../assets/logo-white.svg";
             }
          });
 
-      // Actualizar estado activo de los botones
       langButtons.forEach((btn) => {
          const btnLang = btn.getAttribute("data-lang");
          if (btnLang === lang) {
@@ -160,31 +156,25 @@ import logoWhite from "../../assets/logo-white.svg";
          }
       });
 
-      // Disparar evento personalizado para que otros componentes puedan reaccionar
       window.dispatchEvent(
          new CustomEvent("languageChanged", { detail: { lang } })
       );
    }
 
-   // Inicializar idioma al cargar
    updateLanguage(currentLang);
 
-   // Toggle menu
    menuToggle?.addEventListener("click", () => {
       isMenuOpen = !isMenuOpen;
 
       if (isMenuOpen) {
-         // Abrir menú
          menuOverlay?.classList.remove("translate-x-full");
          menuOverlay?.classList.add("translate-x-0");
          menuOverlay?.classList.remove("pointer-events-none");
          menuOverlay?.classList.add("pointer-events-auto");
 
-         // Mostrar logo, ocultar botones de idioma
          logoMenu?.classList.remove("opacity-0", "pointer-events-none");
          logoMenu?.classList.add("opacity-100", "pointer-events-auto");
 
-         // Animar hamburger a X
          hamburgerLines[0]?.classList.add("rotate-45", "translate-y-2");
          hamburgerLines[1]?.classList.add("opacity-0");
          hamburgerLines[2]?.classList.add("-rotate-45", "-translate-y-2");

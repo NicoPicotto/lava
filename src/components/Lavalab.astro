@@ -10,11 +10,12 @@ import lavaIso from "../assets/3d-lava.png";
 const t = getI18N(defaultLang);
 ---
 
-<main class='flex flex-col w-screen relative pt-32 pb-24 overflow-x-hidden'>
+<main class='flex flex-col w-screen relative pt-32 pb-24 overflow-x-hidden' id='lavalab'>
    <Image
       src={lab3d}
       alt='3D illustrative model'
       class='parallax-icon absolute z-0 top-20 left-[10%] md:left-[35%] w-[27rem] h-auto object-cover'
+      data-animate='fade-in'
    />
    <Image
       src={lavaIso}
@@ -32,7 +33,7 @@ const t = getI18N(defaultLang);
          <div
             class='relative w-fit mx-auto flex flex-col items-center justify-center gap-0 px-4'
          >
-            <div class='flex gap-4'>
+            <div class='flex gap-4' data-animate='slide-up'>
                <h2
                   class='leading-none text-center font-black tracking-normal'
                   style='font-size: clamp(4rem, 15vw, 15rem); letter-spacing: -0.12em;'
@@ -54,9 +55,13 @@ const t = getI18N(defaultLang);
                Haus of Creators
             </h3>
          </div>
-         <div class='grid grid-cols-1 md:grid-cols-2 gap-20'>
+         <div
+            class='grid grid-cols-1 md:grid-cols-2 gap-20'
+            data-animate='stagger-container'
+         >
             <div
                class='relative flex flex-col py-10 px-24 gap-0 items-center justify-center rounded-4xl overflow-hidden shadow-lg'
+               data-animate='stagger-item'
             >
                <div
                   class='absolute w-full h-full bg-foreground opacity-28 pointer-events-none'
@@ -84,6 +89,7 @@ const t = getI18N(defaultLang);
             </div>
             <div
                class='relative flex flex-col py-10 px-24 gap-0 items-center justify-center rounded-4xl overflow-hidden shadow-lg'
+               data-animate='stagger-item'
             >
                <div
                   class='absolute w-full h-full bg-foreground opacity-28 pointer-events-none'

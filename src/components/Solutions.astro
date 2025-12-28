@@ -12,7 +12,7 @@ import iconInstagram from "../assets/solutions-ig.png";
 const t = getI18N(defaultLang);
 ---
 
-<main class='flex flex-col w-screen relative pt-32 pb-24'>
+<main class='flex flex-col w-screen md:min-h-screen relative pt-32 pb-24' id='solutions'>
    <Image
       src={solutionsBg}
       alt='Gradient background'
@@ -48,11 +48,15 @@ const t = getI18N(defaultLang);
          class='leading-none text-center font-extrabold italic tracking-normal md:tracking-[-4px]'
          style='font-size: clamp(3.5rem, 15vw, 15rem);'
          data-i18n='solutions.title'
+         data-animate='slide-up'
       >
          {t.solutions.title}
       </h1>
       <Container>
-         <div class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16'>
+         <div
+            class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16'
+            data-animate='stagger-container'
+         >
             <SolutionsCard
                title={t.solutions.cards.creatorsOrganic.title}
                description={t.solutions.cards.creatorsOrganic.description}
