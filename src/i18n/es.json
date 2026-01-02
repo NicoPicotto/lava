@@ -3,29 +3,28 @@
       "title": "SOLUCIONES",
       "cards": {
          "creatorsOrganic": {
-            "title": "CREATORS ORGANIC",
-            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
+            "title": "CAMPAÑAS ORGÁNICAS",
+            "description": "Campañas orgánicas end-to-end con integraciones de marca que se perciben recomendaciones, no publicidad. \n Narrativas creíbles, nativas y relevantes en cada plataforma."
          },
          "ugcAds": {
-            "title": "UGC ADS",
-            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
+            "title": "PRODUCCIÓN UGC",
+            "description": "UGC escalable diseñado para acompañar objetivos de marca y performance. \n Contenido de alta calidad, atractivo y creado en el lenguaje nativo de cada plataforma."
          },
          "productSeeding": {
-            "title": "PRODUCT SEEDING",
-            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas"
+            "title": "CANJE ESTRATÉGICO",
+            "description": "Campañas de canje para expandir el alcance y la presencia del producto en plataformas clave. \n Diseñadas para potenciar el orgánico y construir relaciones a largo plazo con creadores de interés."
          }
       }
    },
    "lavalab": {
-      "builtForCreators": "Hecho para Creadores",
       "cards": {
          "rep": {
             "title": "REP",
-            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas."
+            "description": "Representación de Creadores en alianzas con marcas y agencias, negociando acuerdos justos y promoviendo colaboraciones a largo plazo. \n\n Aseguramos el fit correcto entre marca y creador, garantizando la integridad creativa."
          },
          "academy": {
-            "title": "ACADEMIA",
-            "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptas."
+            "title": "ACADEMY",
+            "description": "Formación y desarrollo estratégico para el crecimiento de Creadores que quieren profesionalizar su contenido y desarrollarse en la industria. \n\n Hacemos de la creatividad una carrera sostenible. "
          }
       }
    },
@@ -37,11 +36,11 @@
          "email": "Email",
          "message": "Mensaje",
          "messagePlaceholder": "Contanos sobre un proyecto que tengas en mente...",
-         "creator": "Soy un creador de contenido",
-         "brand": "Soy una marca",
+         "creator": "Soy creador",
+         "brand": "Soy marca",
          "submit": "ENVIAR",
          "sending": "Enviando...",
-         "success": "Hemos recibido tu mensaje y te responderemos pronto!",
+         "success": "¡Súper! Recibimos tu mensaje y te vamos a responder a la brevedad.",
          "error": "Algo salió mal. Por favor intenta nuevamente o contáctanos en hello@lavaugc.com."
       }
    },

@@ -17,15 +17,14 @@
       }
    },
    "lavalab": {
-      "builtForCreators": "Built for Creators",
       "cards": {
          "rep": {
             "title": "REP",
-            "description": "We represent creators in brand partnerships, negotiating fair agreements and building sustainable, long-term collaborations. Focused on the right brand fit, sustainability and creative integrity."
+            "description": "We represent creators in brand partnerships, negotiating fair agreements and building sustainable, long-term collaborations. \n\n Focused on the right brand fit, sustainability and creative integrity."
          },
          "academy": {
             "title": "ACADEMY",
-            "description": "Education and strategic guidance for creators who want to professionalize their content and grow within the creator economy. Built to turn creativity into a sustainable career."
+            "description": "Education and strategic guidance for creators who want to professionalize their content and grow within the creator economy. \n\n Built to turn creativity into a sustainable career."
          }
       }
    },

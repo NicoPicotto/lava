@@ -30,6 +30,27 @@ const t = getI18N(defaultLang);
             data-msg-success={t.contact.form.success}
             data-msg-error={t.contact.form.error}
          >
+            <RadioGroup
+               name='type'
+               defaultValue='brand'
+               legend='Choose an option'
+               orientation='horizontal'
+               class='gap-10'
+               data-animate='slide-up'
+            >
+               <div class='flex gap-2 items-center'>
+                  <RadioGroupItem id='brand' value='brand' name='type' />
+                  <Label for='brand' data-i18n='contact.form.brand'
+                     >{t.contact.form.brand}</Label
+                  >
+               </div>
+               <div class='flex gap-2 items-center'>
+                  <RadioGroupItem id='creator' value='creator' name='type' />
+                  <Label for='creator' data-i18n='contact.form.creator'
+                     >{t.contact.form.creator}</Label
+                  >
+               </div>
+            </RadioGroup>
             <div class='flex flex-col gap-2' data-animate='slide-up'>
                <Label for='name' data-i18n='contact.form.name'
                   >{t.contact.form.name}</Label
@@ -39,6 +60,17 @@ const t = getI18N(defaultLang);
                   size='lg'
                   name='name'
                   placeholder='John Doe'
+                  required
+               />
+            </div>
+            <div class='flex flex-col gap-2' data-animate='slide-up'>
+               <Label for='email'>Email</Label>
+               <Input
+                  id='email'
+                  size='lg'
+                  name='email'
+                  type='email'
+                  placeholder='john.doe@example.com'
                   required
                />
             </div>
@@ -53,38 +85,6 @@ const t = getI18N(defaultLang);
                   placeholder='Australia'
                />
             </div>
-            <div class='flex flex-col gap-2' data-animate='slide-up'>
-               <Label for='email'>Email</Label>
-               <Input
-                  id='email'
-                  size='lg'
-                  name='email'
-                  type='email'
-                  placeholder='john.doe@example.com'
-                  required
-               />
-            </div>
-            <RadioGroup
-               name='type'
-               defaultValue='creator'
-               legend='Choose an option'
-               orientation='horizontal'
-               class='gap-10'
-               data-animate='slide-up'
-            >
-               <div class='flex gap-2 items-center'>
-                  <RadioGroupItem id='creator' value='creator' name='type' />
-                  <Label for='creator' data-i18n='contact.form.creator'
-                     >{t.contact.form.creator}</Label
-                  >
-               </div>
-               <div class='flex gap-2 items-center'>
-                  <RadioGroupItem id='brand' value='brand' name='type' />
-                  <Label for='brand' data-i18n='contact.form.brand'
-                     >{t.contact.form.brand}</Label
-                  >
-               </div>
-            </RadioGroup>
             <div class='flex flex-col gap-2' data-animate='slide-up'>
                <Label for='message' data-i18n='contact.form.message'
                   >{t.contact.form.message}</Label

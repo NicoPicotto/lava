@@ -20,16 +20,31 @@ const t = getI18N(defaultLang);
          </h3>
          <div class='flex justify-between items-center w-full'>
             <div class='flex items-end gap-2'>
-               <Image
-                  src={linkedinLogo}
-                  alt='LinkedIn Logo'
-                  class='w-6 h-auto object-cover'
-               />
-               <Image
-                  src={instagramLogo}
-                  alt='Instagram Logo'
-                  class='w-5 h-auto object-cover'
-               />
+               <a
+                  href='https://www.linkedin.com/company/lavaugc'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='Visit LAVA UGC on LinkedIn'
+                  class='transition-transform duration-300 hover:-translate-y-1 hover:scale-102 inline-block'
+               >
+                  <Image
+                     src={linkedinLogo}
+                     alt='LinkedIn Logo'
+                     class='w-6 h-auto object-cover'
+                  /></a
+               >
+               <a href='https://www.instagram.com/lavaugc/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='Follow LAVA UGC on Instagram'
+                  class='transition-transform duration-300 hover:-translate-y-1 hover:scale-102 inline-block'
+               >
+                  <Image
+                     src={instagramLogo}
+                     alt='Instagram Logo'
+                     class='w-5 h-auto object-cover'
+                  />
+               </a>
             </div>
             <a
                href='mailto:hello@lavaugc.com'
