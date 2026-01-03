@@ -20,11 +20,11 @@
       "cards": {
          "rep": {
             "title": "REP",
-            "description": "Representación de Creadores en alianzas con marcas y agencias, negociando acuerdos justos y promoviendo colaboraciones a largo plazo. \n\n Aseguramos el fit correcto entre marca y creador, garantizando la integridad creativa."
+            "description": "Representación de Creadores en alianzas con marcas y agencias, negociando acuerdos justos y promoviendo colaboraciones a largo plazo. \n Aseguramos el fit correcto entre Marca y Creador, garantizando la integridad creativa."
          },
          "academy": {
             "title": "ACADEMY",
-            "description": "Formación y desarrollo estratégico para el crecimiento de Creadores que quieren profesionalizar su contenido y desarrollarse en la industria. \n\n Hacemos de la creatividad una carrera sostenible. "
+            "description": "Formación y desarrollo estratégico para el crecimiento de Creadores que quieren profesionalizar su contenido y desarrollarse en la industria. \n Hacemos de la creatividad una carrera sostenible. "
          }
       }
    },
@@ -36,8 +36,8 @@
          "email": "Email",
          "message": "Mensaje",
          "messagePlaceholder": "Contanos sobre un proyecto que tengas en mente...",
-         "creator": "Soy creador",
-         "brand": "Soy marca",
+         "creator": "Soy Creador",
+         "brand": "Soy Marca",
          "submit": "ENVIAR",
          "sending": "Enviando...",
          "success": "¡Súper! Recibimos tu mensaje y te vamos a responder a la brevedad.",

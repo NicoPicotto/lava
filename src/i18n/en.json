@@ -4,7 +4,7 @@
       "cards": {
          "creatorsOrganic": {
             "title": "ORGANIC CAMPAIGNS",
-            "description": "End-to-end organic campaigns where brand integrations feel like genuine recommendations — not ads. Built to be credible, native and relevant on each platform."
+            "description": "End-to-end organic campaigns where brand integrations feel like genuine recommendations, not ads. Built to be credible, native and relevant on each platform."
          },
          "ugcAds": {
             "title": "UGC PRODUCTION",
@@ -20,11 +20,11 @@
       "cards": {
          "rep": {
             "title": "REP",
-            "description": "We represent creators in brand partnerships, negotiating fair agreements and building sustainable, long-term collaborations. \n\n Focused on the right brand fit, sustainability and creative integrity."
+            "description": "We represent Creators in brand partnerships, negotiating fair agreements and building sustainable, long-term collaborations. \n Focused on the right brand fit, sustainability and creative integrity."
          },
          "academy": {
             "title": "ACADEMY",
-            "description": "Education and strategic guidance for creators who want to professionalize their content and grow within the creator economy. \n\n Built to turn creativity into a sustainable career."
+            "description": "Education and strategic guidance for Creators who want to professionalize their content and grow within the Creator Economy. \n Built to turn creativity into a sustainable career."
          }
       }
    },
@@ -36,8 +36,8 @@
          "email": "Email",
          "message": "Message",
          "messagePlaceholder": "Tell us about your project or what you're looking for...",
-         "creator": "I'm a creator",
-         "brand": "I'm a brand",
+         "creator": "I'm a Creator",
+         "brand": "I'm a Brand",
          "submit": "SUBMIT",
          "sending": "Sending...",
          "success": "We've received your message and will get back to you shortly!",

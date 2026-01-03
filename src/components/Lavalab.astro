@@ -34,13 +34,13 @@ const t = getI18N(defaultLang);
       />
       <div class='flex flex-col gap-16 items-center'>
          <div
-            class='relative w-fit mx-auto flex flex-col items-center justify-center gap-2 md:gap-0 px-4'
+            class='relative mx-auto flex flex-col items-center justify-center gap-2 md:gap-0 px-4'
+            id='lavalab-title-container'
          >
-            <div class='flex gap-4' data-animate='slide-up'>
+            <div class='flex gap-4' data-animate='slide-up' id='lavalab-main'>
                <h2
                   class='leading-none text-center font-black tracking-normal'
                   style='font-size: clamp(4rem, 15vw, 15rem); letter-spacing: -0.12em;'
-                  '
                >
                   LAVA
                </h2>
@@ -52,9 +52,10 @@ const t = getI18N(defaultLang);
                </h2>
             </div>
             <h3
-               class='leading-none text-center font-light tracking-widest italic mt-[-10px] md:tracking-[1.5vw]'
+               class='leading-none text-center font-light italic mt-[-10px] pl-3'
                data-animate='slide-up'
-               style='font-size: clamp(1rem, 2.8vw, 2.5rem);'
+               id='lavalab-subtitle'
+               style='font-size: clamp(1rem, 2.3vw, 1.8rem);'
             >
                Built for Creators
             </h3>
@@ -123,3 +124,43 @@ const t = getI18N(defaultLang);
       </div>
    </Container>
 </main>
+
+<script>
+   function adjustSubtitleSpacing() {
+      const mainTitle = document.getElementById('lavalab-main');
+      const subtitle = document.getElementById('lavalab-subtitle');
+
+      if (!mainTitle || !subtitle) return;
+
+      subtitle.style.letterSpacing = '0';
+      void subtitle.offsetWidth;
+
+      const mainWidth = mainTitle.offsetWidth;
+      const subtitleWidth = subtitle.offsetWidth;
+      const text = subtitle.textContent?.trim() || '';
+
+      const visibleChars = text.replace(/\s/g, '').length;
+      const numGaps = text.length - 1;
+
+      if (numGaps > 0 && mainWidth > subtitleWidth) {
+         const extraSpace = mainWidth - subtitleWidth;
+         const spacingPerGap = extraSpace / numGaps;
+
+         const fontSize = parseFloat(window.getComputedStyle(subtitle).fontSize);
+         const spacingInEm = spacingPerGap / fontSize;
+         subtitle.style.letterSpacing = `${spacingInEm * 0.95}em`;
+      }
+   }
+
+   if (typeof window !== 'undefined') {
+      if (document.readyState === 'loading') {
+         document.addEventListener('DOMContentLoaded', adjustSubtitleSpacing);
+      } else {
+         adjustSubtitleSpacing();
+      }
+      window.addEventListener('resize', adjustSubtitleSpacing);
+      if (document.fonts) {
+         document.fonts.ready.then(adjustSubtitleSpacing);
+      }
+   }
+</script>
